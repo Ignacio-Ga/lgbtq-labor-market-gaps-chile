@@ -1,0 +1,542 @@
+---
+title: "EEDD"
+output: pdf_document
+date: "2026-07-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(survey)
+
+dir.create("Inter_Tables", showWarnings = FALSE)
+dir.create("Tables", showWarnings = FALSE)
+```
+
+```{r}
+panel_total <- read.csv("Intermediates/Panel_total.csv")
+
+```
+
+```{r}
+generar_tabla_comparacion <- function(panel_data, edad_comparison) {
+  
+
+  panel_data <- panel_data[panel_data$edad <= edad_comparison, ]
+  
+
+  yr <- c(2015, 2017, 2022, 2024)
+  os <- c(1, 2, 3, 4, 9, -88, -99)
+  g  <- c(1, 2, 3, 4, 5, 6, 9, -88, -99)
+  t  <- c(1, 2, -88, -99)
+  
+
+  resultados <- data.frame()
+  
+  for (i in yr) {
+    base <- panel_data[panel_data$year == i, ] 
+    
+    for (o in os) {
+      AMAB_N <- sum(base$AMAB == 1 & base$os1 == o, na.rm = TRUE)
+      AFAB_N <- sum(base$AFAB == 1 & base$os1 == o, na.rm = TRUE)
+      
+      fila_actual <- data.frame(year = i, os1 = o, AMAB_N = AMAB_N, AFAB_N = AFAB_N)
+      resultados <- rbind(resultados, fila_actual)
+    }
+  }
+  
+  resultados_os1 <- resultados %>%
+    pivot_wider(
+      names_from = year, 
+      values_from = c(AMAB_N, AFAB_N),
+      names_glue = "{.value}_{year}" 
+    ) %>%
+    select(os1, 
+           AMAB_N_2015, AFAB_N_2015,
+           AMAB_N_2017, AFAB_N_2017,
+           AMAB_N_2022, AFAB_N_2022,
+           AMAB_N_2024, AFAB_N_2024) %>%
+    mutate(os1 = case_when(
+      os1 == 1 ~ "Heterosexual",
+      os1 == 2 ~ "Gay/Lesbian",
+      os1 == 3 ~ "Bisexual",
+      os1 == 4 ~ "Other",
+      os1 == 9 ~ "Don't know/No answer",
+      os1 == -88 ~ "Don't know",
+      os1 == -99 ~ "Prefer not to answer"
+    )) %>% 
+    rename(var = os1)
+
+
+  resultados_g <- data.frame()
+  
+  for (i in yr) {
+    base <- panel_data[panel_data$year == i, ] 
+    
+    for (j in g) {
+      AMAB_N <- sum(base$AMAB == 1 & base$genero == j, na.rm = TRUE)
+      AFAB_N <- sum(base$AFAB == 1 & base$genero == j, na.rm = TRUE)
+      
+      fila_actual <- data.frame(year = i, genero = j, AMAB_N = AMAB_N, AFAB_N = AFAB_N)
+      resultados_g <- rbind(resultados_g, fila_actual)
+    }
+  }
+  
+  resultados_genero <- resultados_g %>%
+    pivot_wider(
+      names_from = year, 
+      values_from = c(AMAB_N, AFAB_N),
+      names_glue = "{.value}_{year}" 
+    ) %>%
+    select(genero, 
+           AMAB_N_2015, AFAB_N_2015,
+           AMAB_N_2017, AFAB_N_2017,
+           AMAB_N_2022, AFAB_N_2022,
+           AMAB_N_2024, AFAB_N_2024) %>%
+    mutate(genero = case_when(
+      genero == 1 ~ "Male",
+      genero == 2 ~ "Female",
+      genero == -88 ~ "Don't know",
+      genero == -99 ~ "Prefer not to answer",
+      TRUE ~ as.character(genero)
+    )) %>% 
+    rename(var = genero)
+  
+
+  resultados_t <- data.frame()
+  
+  mini_year <- c(2022, 2024)
+  
+  for (i in mini_year) {
+    base <- panel_data[panel_data$year == i, ]
+    for (j in t) {
+      AMAB_N <- sum(base$AMAB == 1 & base$trans == j, na.rm = TRUE)
+      AFAB_N <- sum(base$AFAB == 1 & base$trans == j, na.rm = TRUE)
+      
+      fila_actual <- data.frame(year = i, trans = j, AMAB_N = AMAB_N, AFAB_N = AFAB_N)
+      resultados_t <- rbind(resultados_t, fila_actual)
+    }
+  }
+  
+  resultados_trans <- resultados_t %>%
+    pivot_wider(
+      names_from = year, 
+      values_from = c(AMAB_N, AFAB_N),
+      names_glue = "{.value}_{year}" 
+    ) %>%
+    mutate(
+      AMAB_N_2015 = NA_real_,
+      AFAB_N_2015 = NA_real_,
+      AMAB_N_2017 = NA_real_,
+      AFAB_N_2017 = NA_real_
+    ) %>%
+    select(trans, 
+           AMAB_N_2015, AFAB_N_2015,
+           AMAB_N_2017, AFAB_N_2017,
+           AMAB_N_2022, AFAB_N_2022,
+           AMAB_N_2024, AFAB_N_2024) %>%
+    mutate(trans = case_when(
+      trans == 1 ~ "Yes",
+      trans == 2 ~ "No",
+      trans == -88 ~ "Don't know",
+      trans == -99 ~ "Prefer not to answer",
+      TRUE ~ as.character(trans)
+    )) %>% 
+    rename(var = trans)
+    
+
+  resultados_totales <- data.frame(var = "Total")
+  
+
+  for (i in yr) {
+    base <- panel_data[panel_data$year == i, ]
+    
+
+    resultados_totales[[paste0("AMAB_N_", i)]] <- sum(base$AMAB == 1, na.rm = TRUE)
+    resultados_totales[[paste0("AFAB_N_", i)]] <- sum(base$AFAB == 1, na.rm = TRUE)
+  }
+  
+
+  resultados_totales <- resultados_totales %>%
+    select(var, 
+           AMAB_N_2015, AFAB_N_2015,
+           AMAB_N_2017, AFAB_N_2017,
+           AMAB_N_2022, AFAB_N_2022,
+           AMAB_N_2024, AFAB_N_2024)
+  
+
+  comparison_total <- bind_rows(resultados_os1, resultados_genero, resultados_trans, resultados_totales)
+  
+  return(comparison_total)
+}
+
+```
+
+```{r}
+comparison_total <- generar_tabla_comparacion(panel_total, 1000)
+comparison_65 <- generar_tabla_comparacion(panel_total, 65)
+
+write_csv(comparison_total, "Inter_Tables/comparison_total.csv")
+write_csv(comparison_65, "Inter_Tables/comparison_65.csv")
+```
+
+```{r}
+
+df <- read.csv("Inter_Tables/comparison_65.csv", stringsAsFactors = FALSE)
+
+
+fmt <- function(x) {
+  if (is.na(x) || x == "") return("")
+  formatC(as.numeric(x), format="d", big.mark=",")
+}
+
+
+v <- function(r, c) fmt(df[r, c])
+
+
+lines <- c(
+  "\\begin{table}[htpb]",
+  "\\label{tab:comparison}",
+  "\\caption{Comparison between CASEN 2015, 2017, 2022, and 2024 questionnaires.}",
+  "\\resizebox{\\textwidth}{!}{%",
+  "\\begin{tabular}{lcclccl|rcclccl}",
+  "\\hline",
+  "                                                  & \\multicolumn{2}{c}{2015}                                                                                                   &  & \\multicolumn{2}{c}{2017}                                                                                                   &  & \\multicolumn{1}{l}{}                & \\multicolumn{2}{c}{2022}                                                                                                   &  & \\multicolumn{2}{c}{2024}                                                                                                   &  \\\\ \\cline{2-3} \\cline{5-6} \\cline{9-10} \\cline{12-13}",
+  "                                                  & \\begin{tabular}[c]{@{}c@{}}AMAB\\\\ N\\end{tabular} & \\begin{tabular}[c]{@{}c@{}}AFAB\\\\ N\\end{tabular} &  & \\begin{tabular}[c]{@{}c@{}}AMAB\\\\ N\\end{tabular} & \\begin{tabular}[c]{@{}c@{}}AFAB\\\\ N\\end{tabular} &  & \\multicolumn{1}{l}{}                & \\begin{tabular}[c]{@{}c@{}}AMAB\\\\ N\\end{tabular} & \\begin{tabular}[c]{@{}c@{}}AFAB\\\\ N\\end{tabular} &  & \\begin{tabular}[c]{@{}c@{}}AMAB\\\\ N\\end{tabular} & \\begin{tabular}[c]{@{}c@{}}AFAB\\\\ N\\end{tabular} &  \\\\ \\hline",
+  
+
+  "\\multicolumn{6}{l}{\\textit{Which of these alternatives best defines your sexual orientation?}}                                                                                                                                                                                                                                                                                                                                  &  & \\multicolumn{6}{l}{\\textit{Which of these alternatives best defines your sexual orientation?}}                                                                                                                                                                                                                                                                                                                                    &  \\\\",
+  sprintf("\\multicolumn{1}{r}{\\textit{Heterosexual}}         & %s & %s &  & %s & %s &  & \\textit{Heterosexual}               & %s & %s &  & %s & %s &  \\\\",
+          v(1,2), v(1,3), v(1,4), v(1,5), v(1,6), v(1,7), v(1,8), v(1,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Gay/Lesbian}}          & %s & %s &  & %s & %s &  & \\textit{Gay/Lesbian}                & %s & %s &  & %s & %s &  \\\\",
+          v(2,2), v(2,3), v(2,4), v(2,5), v(2,6), v(2,7), v(2,8), v(2,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Bisexual}}             & %s & %s &  & %s & %s &  & \\textit{Bisexual}                   & %s & %s &  & %s & %s &  \\\\",
+          v(3,2), v(3,3), v(3,4), v(3,5), v(3,6), v(3,7), v(3,8), v(3,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Other}}                & %s & %s &  & %s & %s &  & \\textit{Other}                      & %s & %s &  & %s & %s &  \\\\",
+          v(4,2), v(4,3), v(4,4), v(4,5), v(4,6), v(4,7), v(4,8), v(4,9)),
+  sprintf("\\multicolumn{1}{r}{Don't know/No answer}          & %s & %s &  & %s & %s &  & \\textit{Don't know}                 & %s & %s &  & %s & %s &  \\\\",
+          v(5,2), v(5,3), v(5,4), v(5,5), v(6,6), v(6,7), v(6,8), v(6,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Prefer not to answer}       & %s & %s &  & %s & %s &  \\\\ \\hline",
+          v(7,6), v(7,7), v(7,8), v(7,9)),
+
+
+  "\\multicolumn{6}{l}{\\textit{Regarding your gender, do you identify as?}}                                                                                                                                                                                                                                                                                                                                                      &  & \\multicolumn{6}{l}{\\textit{What gender do you identify with?}}                                                                                                                                                                                                                                                                                                                                                               &  \\\\",
+  sprintf("\\multicolumn{1}{r}{\\textit{Male}}                 & %s & %s &  & %s & %s &  & \\textit{Male}                       & %s & %s &  & %s & %s &  \\\\",
+          v(8,2), v(8,3), v(8,4), v(8,5), v(8,6), v(8,7), v(8,8), v(8,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Female}}               & %s & %s &  & %s & %s &  & \\textit{Female}                     & %s & %s &  & %s & %s &  \\\\",
+          v(9,2), v(9,3), v(9,4), v(9,5), v(9,6), v(9,7), v(9,8), v(9,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Transgender}}          & %s & %s &  & %s & %s &  & \\textit{Transmasculine}             & %s & %s &  & %s & %s &  \\\\",
+          v(10,2), v(10,3), v(10,4), v(10,5), v(10,6), v(10,7), v(10,8), v(10,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Prefer not to answer}} & %s & %s &  & %s & %s &  & \\textit{Transfeminine}              & %s & %s &  & %s & %s &  \\\\",
+          v(11,2), v(11,3), v(11,4), v(11,5), v(11,6), v(11,7), v(11,8), v(11,9)),
+  sprintf("\\multicolumn{1}{r}{\\textit{Don't know}}           & %s & %s &  & %s & %s &  & \\textit{Non-binary}                 & %s & %s &  & %s & %s &  \\\\",
+          v(14,2), v(14,3), v(14,4), v(14,5), v(12,6), v(12,7), v(12,8), v(12,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Other}                      & %s & %s &  & %s & %s &  \\\\",
+          v(13,6), v(13,7), v(13,8), v(13,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Don't know}                 & %s & %s &  & %s & %s &  \\\\",
+          v(15,6), v(15,7), v(15,8), v(15,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Prefer not to answer}       & %s & %s &  & %s & %s &  \\\\ \\cline{8-14} ",
+          v(16,6), v(16,7), v(16,8), v(16,9)),
+
+
+  "                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{6}{l}{\\textit{Do you consider yourself trans?}}                                                                                                                                                                                                                                                                                                  &  \\\\",
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Yes}                        & %s & %s &  & %s & %s &  \\\\",
+          v(17,6), v(17,7), v(17,8), v(17,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{No}                         & %s & %s &  & %s & %s &  \\\\",
+          v(18,6), v(18,7), v(18,8), v(18,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{Don't know}                 & %s & %s &  & %s & %s &  \\\\",
+          v(19,6), v(19,7), v(19,8), v(19,9)),
+  sprintf("                                                  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} &  & \\textit{No answer}                  & %s & %s &  & %s & %s &  \\\\ \\hline",
+          v(20,6), v(20,7), v(20,8), v(20,9)),
+
+
+  sprintf("\\textit{Total}                                    & %s & %s &  & %s & %s &  & \\multicolumn{1}{l}{\\textit{Total}} & %s & %s &  & %s & %s &  \\\\ \\hline",
+          v(21,2), v(21,3), v(21,4), v(21,5), v(21,6), v(21,7), v(21,8), v(21,9)),
+
+  "\\end{tabular}%",
+  "}",
+  "\\vspace{1ex}",
+  "\\raggedright",
+  "\\footnotesize \\textit{Note:} This table shows exactly all the people who were present at the time they were asked; therefore, this sample consists of all people over 18 years old, which implies that it is not necessarily the final sample. For the years 2022 and 2024, the question ``Do you consider yourself trans?'' is asked only if sex differs from gender, or if the selected gender is non-binary or other.",
+  "\\end{table}"
+)
+
+
+cat(lines, sep = "\n")
+
+
+writeLines(lines, "Tables/comparison_question_65.tex")
+```
+
+
+```{r}
+generar_tabla_identidad <- function(panel_total, edad_filtro) {
+  
+
+  yr <- c(2015, 2017, 2022, 2024)
+  
+
+  diseno_panel <- svydesign(
+    ids = ~varunit_panel,
+    strata = ~varstrat_panel,
+    weights = ~expr_osig,
+    data = panel_total,
+    nest = TRUE
+  )
+  
+
+  diseno_panel <- subset(diseno_panel, edad <= edad_filtro)
+  panel_total <- panel_total[panel_total$edad <= edad_filtro, ]
+  
+
+  row_labels <- c("Heterosexual", "Gay/Lesbian", "Bisexual", "Other", 
+                  "Don't Know", "Prefer not to answer", 
+                  "Cis", "Trans", "Non-binary", "Gender Minority", 
+                  "Don't Know_gi", "Prefer not to answer_gi")
+  
+  resultados_identidad <- data.frame(var = row_labels)
+  fila_total <- data.frame(var = "Total")
+  
+
+  for (i in yr) {
+    base <- panel_total[panel_total$year == i, ]
+    
+
+    amab_col <- c(
+      sum(base$AMAB == 1 & base$Hetero == 1),
+      sum(base$AMAB == 1 & base$LG == 1),
+      sum(base$AMAB == 1 & base$bisexual == 1),
+      sum(base$AMAB == 1 & base$Other == 1),
+      sum(base$AMAB == 1 & base$IDK == 1),
+      sum(base$AMAB == 1 & base$RNS == 1),
+      sum(base$AMAB == 1 & base$cis == 1),
+      sum(base$AMAB == 1 & base$TRANS == 1),
+      sum(base$AMAB == 1 & base$NB == 1),
+      sum(base$AMAB == 1 & base$GM == 1),
+      sum(base$AMAB == 1 & base$IDK_ig == 1),
+      sum(base$AMAB == 1 & base$RNA_ig == 1)
+    )
+    
+
+    afab_col <- c(
+      sum(base$AFAB == 1 & base$Hetero == 1),
+      sum(base$AFAB == 1 & base$LG == 1),
+      sum(base$AFAB == 1 & base$bisexual == 1),
+      sum(base$AFAB == 1 & base$Other == 1),
+      sum(base$AFAB == 1 & base$IDK == 1),
+      sum(base$AFAB == 1 & base$RNS == 1),
+      sum(base$AFAB == 1 & base$cis == 1),
+      sum(base$AFAB == 1 & base$TRANS == 1),
+      sum(base$AFAB == 1 & base$NB == 1),
+      sum(base$AFAB == 1 & base$GM == 1),
+      sum(base$AFAB == 1 & base$IDK_ig == 1),
+      sum(base$AFAB == 1 & base$RNA_ig == 1)
+    )
+    
+    resultados_identidad[[paste0("AMAB_", i)]] <- amab_col
+    resultados_identidad[[paste0("AFAB_", i)]] <- afab_col
+    
+    fila_total[[paste0("AMAB_", i)]] <- sum(base$AMAB == 1)
+    fila_total[[paste0("AFAB_", i)]] <- sum(base$AFAB == 1)
+  }
+  
+
+  resultados_proporcion <- svyby(
+    formula = ~Hetero + LG + bisexual + Other + IDK + RNS + 
+               cis + TRANS + NB + GM + IDK_ig + RNA_ig, 
+    by = ~year + sexo, 
+    design = diseno_panel, 
+    FUN = svymean, 
+    na.rm = TRUE
+  )
+  
+
+  vars_names <- c("Hetero", "LG", "bisexual", "Other", "IDK", "RNS", 
+                  "cis", "TRANS", "NB", "GM", "IDK_ig", "RNA_ig")
+  
+  resultados_prop <- data.frame(var = paste0(row_labels, " (Proporcion)"))
+  
+  for (i in yr) {
+
+    row_amab <- resultados_proporcion[resultados_proporcion$year == i & resultados_proporcion$sexo == 1, ]
+    row_afab <- resultados_proporcion[resultados_proporcion$year == i & resultados_proporcion$sexo == 2, ]
+    
+    amab_prop_col <- c()
+    afab_prop_col <- c()
+    
+    for (v in vars_names) {
+
+      mean_amab <- row_amab[[v]] * 100
+      se_amab <- row_amab[[paste0("se.", v)]] * 100
+      amab_prop_col <- c(amab_prop_col, sprintf("%.2f (%.2f)", mean_amab, se_amab))
+      
+
+      mean_afab <- row_afab[[v]] * 100
+      se_afab <- row_afab[[paste0("se.", v)]] * 100
+      afab_prop_col <- c(afab_prop_col, sprintf("%.2f (%.2f)", mean_afab, se_afab))
+    }
+    
+    resultados_prop[[paste0("AMAB_", i)]] <- amab_prop_col
+    resultados_prop[[paste0("AFAB_", i)]] <- afab_prop_col
+  }
+  
+
+  resultados_identidad[] <- lapply(resultados_identidad, as.character)
+  resultados_prop[]      <- lapply(resultados_prop, as.character)
+  fila_total[]           <- lapply(fila_total, as.character)
+  
+  tabla_final <- data.frame()
+  
+
+  for (k in 1:length(row_labels)) {
+    tabla_final <- rbind(tabla_final, resultados_identidad[k, ])
+    tabla_final <- rbind(tabla_final, resultados_prop[k, ])
+  }
+  
+
+  sample_osig <- rbind(tabla_final, fila_total)
+  rownames(sample_osig) <- NULL
+  
+  return(sample_osig)
+}
+```
+
+
+```{r}
+sample_osig <- generar_tabla_identidad(panel_total = panel_total, edad_filtro = 65)
+write.csv(sample_osig, "Inter_Tables/sample_osig.csv")
+```
+
+```{r}
+
+df <- read.csv("Inter_Tables/sample_osig.csv", stringsAsFactors = FALSE)
+
+
+fmt <- function(x) {
+  if (is.na(x) || trimws(x) == "") return("")
+  
+  x_trim <- trimws(x)
+  
+
+  if (x_trim == "0.00 (0.00)" || x_trim == "0") {
+    return("-")
+  }
+  
+
+  if (grepl("^[0-9]+$", x_trim)) {
+    return(formatC(as.numeric(x_trim), format="d", big.mark=","))
+  }
+  
+
+  return(x_trim)
+}
+
+
+v <- function(r, c) fmt(df[r, c])
+
+
+lines <- c(
+  "\\begin{table}[htpb]",
+  "\\label{tab:Var}",
+  "\\caption{Sample Size by Sexual Orientation and Gender Identity.}",
+  "\\resizebox{\\textwidth}{!}{%",
+  
+
+  "\\begin{tabular}{lcclccl|lcclccl}",
+  "\\hline",
+  " & \\multicolumn{2}{c}{2015} & & \\multicolumn{2}{c}{2017} & & & \\multicolumn{2}{c}{2022} & & \\multicolumn{2}{c}{2024} & \\\\ \\cline{2-3} \\cline{5-6} \\cline{9-10} \\cline{12-13}",
+  " & AMAB & AFAB & & AMAB & AFAB & & & AMAB & AFAB & & AMAB & AFAB & \\\\ \\hline",
+  
+
+  "\\multicolumn{3}{l}{\\textit{Sexual Orientation}} & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\\\",
+  
+  sprintf("Heterosexual & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(1,3), v(1,4), v(1,5), v(1,6), v(1,7), v(1,8), v(1,9), v(1,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(2,3), v(2,4), v(2,5), v(2,6), v(2,7), v(2,8), v(2,9), v(2,10)),
+          
+  sprintf("Gay/Lesbian & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(3,3), v(3,4), v(3,5), v(3,6), v(3,7), v(3,8), v(3,9), v(3,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(4,3), v(4,4), v(4,5), v(4,6), v(4,7), v(4,8), v(4,9), v(4,10)),
+          
+  sprintf("Bisexual & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(5,3), v(5,4), v(5,5), v(5,6), v(5,7), v(5,8), v(5,9), v(5,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(6,3), v(6,4), v(6,5), v(6,6), v(6,7), v(6,8), v(6,9), v(6,10)),
+          
+  sprintf("Other & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(7,3), v(7,4), v(7,5), v(7,6), v(7,7), v(7,8), v(7,9), v(7,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(8,3), v(8,4), v(8,5), v(8,6), v(8,7), v(8,8), v(8,9), v(8,10)),
+          
+  sprintf("Don't know & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(9,3), v(9,4), v(9,5), v(9,6), v(9,7), v(9,8), v(9,9), v(9,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(10,3), v(10,4), v(10,5), v(10,6), v(10,7), v(10,8), v(10,9), v(10,10)),
+          
+  sprintf("Prefer not to answer & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(11,3), v(11,4), v(11,5), v(11,6), v(11,7), v(11,8), v(11,9), v(11,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\ \\hline", 
+          v(12,3), v(12,4), v(12,5), v(12,6), v(12,7), v(12,8), v(12,9), v(12,10)),
+          
+
+  "\\textit{Gender Identity} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\\\",
+  
+  sprintf("Cis & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(13,3), v(13,4), v(13,5), v(13,6), v(13,7), v(13,8), v(13,9), v(13,10)),
+  sprintf("\\textit{(\\%%)  Population} & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\", 
+          v(14,3), v(14,4), v(14,5), v(14,6), v(14,7), v(14,8), v(14,9), v(14,10)),
+          
+  sprintf("Trans & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(15,3), v(15,4), v(15,5), v(15,6), v(15,7), v(15,8), v(15,9), v(15,10)),
+  sprintf("\\textit{(\\%%)  Population} & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\", 
+          v(16,3), v(16,4), v(16,5), v(16,6), v(16,7), v(16,8), v(16,9), v(16,10)),
+          
+  sprintf("Non-binary & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(17,3), v(17,4), v(17,5), v(17,6), v(17,7), v(17,8), v(17,9), v(17,10)),
+  sprintf("\\textit{(\\%%)  Population} & %s & %s & & %s & %s & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\", 
+          v(18,3), v(18,4), v(18,5), v(18,6), v(18,7), v(18,8), v(18,9), v(18,10)),
+          
+  sprintf("Gender Minority & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(19,3), v(19,4), v(19,5), v(19,6), v(19,7), v(19,8), v(19,9), v(19,10)),
+  sprintf("\\textit{(\\%%)  Population} & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\", 
+          v(20,3), v(20,4), v(20,5), v(20,6), v(20,7), v(20,8), v(20,9), v(20,10)),
+          
+  sprintf("Don't know & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(21,3), v(21,4), v(21,5), v(21,6), v(21,7), v(21,8), v(21,9), v(21,10)),
+  sprintf("\\textit{(\\%%)  Population} & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\", 
+          v(22,3), v(22,4), v(22,5), v(22,6), v(22,7), v(22,8), v(22,9), v(22,10)),
+          
+  sprintf("Prefer not to answer & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\", 
+          v(23,3), v(23,4), v(23,5), v(23,6), v(23,7), v(23,8), v(23,9), v(23,10)),
+  sprintf("\\textit{(\\%%)  Population} & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & & \\multicolumn{1}{l}{%s} & \\multicolumn{1}{l}{%s} & \\\\ \\hline", 
+          v(24,3), v(24,4), v(24,5), v(24,6), v(24,7), v(24,8), v(24,9), v(24,10)),
+          
+
+  sprintf("Total & %s & %s & & %s & %s & & & %s & %s & & %s & %s & \\\\ \\hline", 
+          v(25,3), v(25,4), v(25,5), v(25,6), v(25,7), v(25,8), v(25,9), v(25,10)),
+          
+  "\\end{tabular}%",
+  "}",
+  "",
+  "\\vspace{1ex}",
+  "\\raggedright",
+  "\\footnotesize \\textit{Note:} This table shows the variables to be used during the analysis, restricting the sample only to individuals aged 65 or younger. Standard errors are shown in parentheses. Proportion calculations were made using expansion factors and complex sampling.",
+  "\\end{table}"
+)
+
+
+cat(lines, sep = "\n")
+
+cat(lines, sep = "\n")
+
+
+writeLines(lines, "Tables/sample_osig.tex")
+```
+

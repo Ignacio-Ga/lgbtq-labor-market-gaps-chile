@@ -1,0 +1,498 @@
+---
+title: "EEDD_OS"
+output: pdf_document
+date: "2026-07-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(survey)
+library(tidyr)
+library(haven)
+
+dir.create("Inter_Tables", showWarnings = FALSE)
+dir.create("Tables", showWarnings = FALSE)
+```
+
+```{r}
+panel <- read.csv("Intermediates/Panel_post.csv")
+
+reconstruir_informalidad_nt7 <- function(x) {
+  n <- nrow(x)
+  elegible <- x$activ %in% 1 & is.finite(x$edad) & x$edad>=15
+  dependiente <- elegible & x$o15 %in% 3:8
+  independiente <- elegible & x$o15 %in% c(1,2)
+  familiar <- elegible & x$o15 %in% 9
+  p31 <- x$o31; p32 <- x$o32; boleta <- x$o14
+  p31[p31 %in% -88] <- 9
+  p32[p32 %in% -88] <- 9
+  boleta[boleta %in% -88] <- 9
+  mayor15 <- is.finite(x$edad) & x$edad>=15
+  afp <- rep(NA_integer_,n)
+  afp[mayor15 & (p31 %in% 2 | p32 %in% 6)] <- 0L
+  afp[mayor15 & p31 %in% 1 & p32 %in% 1:5] <- 1L
+  edad_retencion <- (x$sexo %in% 1 & is.finite(x$edad) & x$edad<55) |
+    (x$sexo %in% 2 & is.finite(x$edad) & x$edad<50)
+  afp[mayor15 & (p31 %in% 2 | p32 %in% 6) & boleta %in% 1 & edad_retencion] <- 1L
+  afp[mayor15 & (p31 %in% 9 | p32 %in% 9)] <- 9L
+
+  health <- rep(NA_integer_,n)
+  health[x$s13 %in% c(1,2,3,5)] <- 1L
+  health[x$s13 %in% 4] <- 0L
+  health[x$s13 %in% c(-88,-99,99)] <- 9L
+  oficio <- x$oficio1_08
+  oficio[oficio %in% -66] <- 10
+  oficio[oficio %in% c(-88,-99)] <- 99
+  y <- rep(NA_integer_,n); motivo <- rep("No clasificable",n)
+  asignar <- function(cond, valor, texto) {
+    idx <- which(cond %in% TRUE)
+    y[idx] <<- valor; motivo[idx] <<- texto
+  }
+  
+  asignar(dependiente & afp %in% 1 & health %in% 1,0L,"Dependiente: prevision y salud")
+  asignar(independiente & x$o16 %in% 1,0L,"Independiente: SII registrado")
+  asignar(is.na(y) & independiente & oficio %in% 1:3,0L,"Independiente: respaldo oficio calificado")
+  # Orden de replace del documento: honorarios y SII=2 prevalecen.
+  asignar(dependiente & boleta %in% 1,1L,"Dependiente: honorarios")
+  asignar(dependiente & (afp %in% 0 | health %in% 0),1L,"Dependiente: ausencia prevision o salud")
+  asignar(independiente & x$o16 %in% 2,1L,"Independiente: sin registro SII")
+  asignar(familiar,1L,"Familiar no remunerado")
+  asignar(is.na(y) & independiente & oficio %in% 4:10,1L,"Independiente: respaldo oficio no calificado")
+  motivo[!elegible] <- "Fuera del universo de ocupados de 15 o mas"
+  y_and <- y
+  afectado <- dependiente & y %in% 0 & boleta %in% 9
+  y_and[afectado] <- NA_integer_
+  data.frame(informal_nt7=y,informal_nt7_and=y_and,
+             nt7_afp=afp,nt7_health=health,nt7_boleta=boleta,
+             nt7_oficio=oficio,nt7_motivo=motivo,nt7_sensible_OR_AND=afectado)
+}
+
+
+
+leer_nt7_descriptivos <- function(panel, carpeta_datos = "Data") {
+  fuentes <- c("activ", "edad", "sexo", "o15", "o14", "o16", "o31",
+               "o32", "s13", "oficio1_08")
+  salida <- vector("list", 2L)
+  texto_id <- function(x) {
+    if (is.numeric(x)) sprintf("%.17g", x) else as.character(x)
+  }
+  clave <- function(x, campos) {
+    do.call(paste, c(lapply(x[campos], texto_id), sep = "|"))
+  }
+  iguales <- function(a, b) {
+    if (length(a) != length(b)) return(FALSE)
+    ok <- is.na(a) & is.na(b)
+    v <- !is.na(a) & !is.na(b)
+    ok[v] <- as.character(a[v]) == as.character(b[v])
+    all(ok)
+  }
+  for (j in seq_along(c(2022, 2024))) {
+    anio <- c(2022, 2024)[j]
+    message("Leyendo fuentes de informalidad CASEN ", anio)
+    z <- haven::read_sav(
+      file.path(carpeta_datos, paste0("casen_", anio, ".sav")),
+      col_select = tidyselect::any_of(c(
+        fuentes, "expr_osig", "folio", "id_vivienda", "id_persona", "orden",
+        "esc", "ecivil", "area", "region", "os1", "genero", "contrato"
+      ))
+    ) |> haven::zap_labels() |> as.data.frame()
+    # Mismo filtro y orden que preprocess.R al crear Panel_post.csv.
+    z <- z[!is.na(z$expr_osig), , drop = FALSE]
+    filas <- which(panel$year == anio)
+    a <- panel[filas, , drop = FALSE]
+    candidatos <- list(c("folio", "id_persona"), c("folio", "orden"),
+                       "id_persona")
+    posicion <- NULL
+    for (campos in candidatos) {
+      if (!all(campos %in% intersect(names(a), names(z)))) next
+      if (anyNA(a[campos]) || anyNA(z[campos])) next
+      ka <- clave(a, campos); kz <- clave(z, campos)
+      if (anyDuplicated(ka) || anyDuplicated(kz)) next
+      m <- match(ka, kz)
+      if (!anyNA(m)) { posicion <- m; break }
+    }
+
+    verificar <- intersect(
+      c("folio", "id_vivienda", "edad", "sexo", "activ", "o15", "esc",
+        "ecivil", "area", "region", "os1", "genero", "contrato", "expr_osig"),
+      intersect(names(a), names(z))
+    )
+    if (is.null(posicion)) {
+      if (nrow(a) != nrow(z) || length(verificar) < 6L ||
+          !all(vapply(verificar, function(v) iguales(a[[v]], z[[v]]), logical(1)))) {
+        stop("No se pudo verificar la correspondencia entre Panel_post y SAV en ",
+             anio, ". Use el Panel_post original o conserve id_persona/orden al exportarlo.")
+      }
+      posicion <- seq_len(nrow(a))
+      message("Correspondencia por orden original verificada en ",
+              length(verificar), " variables y todas las filas de ", anio)
+    }
+    z <- z[posicion, , drop = FALSE]
+    if (!all(vapply(verificar, function(v) iguales(a[[v]], z[[v]]), logical(1)))) {
+      stop("Las variables originales no coinciden tras el enlace en ", anio)
+    }
+    salida[[j]] <- cbind(fila_panel = filas, reconstruir_informalidad_nt7(z))
+  }
+  nt7 <- dplyr::bind_rows(salida)
+  nt7[match(seq_len(nrow(panel)), nt7$fila_panel), , drop = FALSE]
+}
+
+nt7 <- leer_nt7_descriptivos(panel)
+panel$informal_work <- nt7$informal_nt7
+write.csv(cbind(year = panel$year, nt7),
+          "Inter_Tables/informalidad_nt7_tabla5.csv", row.names = FALSE)
+
+panel <- panel %>% mutate(y_cepal_1000 = ifelse(y_cepal_1000 < 0, NA, y_cepal_1000),
+                          activ = ifelse(activ == 1, 1, 0),
+                           # Preserve missing/special survey codes: only the
+                           # documented affirmative/negative responses are
+                           # recoded as a binary pension indicator.
+                           Pension = case_when(
+                             Pension == 1 ~ 1,
+                             Pension == 2 ~ 0,
+                             is.na(Pension) | Pension %in% c(-88, -99) ~ NA_real_,
+                             TRUE ~ NA_real_
+                           ),
+                          Urbano = ifelse(area == 1, 1, 0),
+                          analfabetismo = ifelse(analfabetismo == 1, 0, 1),
+                          w_mdsf = w_mdsf/1000,
+                          w_mdsf_hrs = w_mdsf_hrs/1000,
+                          disc_wg = ifelse(disc_wg == -88, NA, disc_wg), 
+                          ind_hacina = ifelse(ind_hacina == -88, NA, ind_hacina),
+                          ind_hacina = ifelse(ind_hacina >= 3, 1, 0)
+                          )
+ 
+
+```
+
+```{r}
+diseno_panel <- svydesign(
+  ids = ~varunit_panel,
+  strata = ~varstrat_panel,
+  weights = ~expr_osig,
+  data = panel,
+  nest = TRUE
+)
+
+# Se conserva el filtro efectivo de la version original.
+# El segundo argumento !is.na(esc) de subset no aplicaba ese filtro.
+diseno_panel <- subset(diseno_panel, edad <= 65)
+```
+
+```{r}
+
+panel_hetero <- subset(diseno_panel, Hetero == 1)
+panel_LG <- subset(diseno_panel, LG == 1)
+panel_bisexual <- subset(diseno_panel, bisexual == 1)
+panel_other <- subset(diseno_panel, Other == 1)
+```
+
+```{r}
+vars_IG <- c("cis", "TRANS", "NB", "GM")
+
+vars_top <- c("edad", "esc", "activ", "y_mdsf_1000")
+
+vars_sin_nas <- c(
+  "edad", "activ", "cis", 
+  "pareja", "salud",  "TRANS", "NB", "GM", "y_mdsf_1000", "extranjero", "casado", "men11c", 
+  "Urbano", "pueblos_indigenas", "soltero"
+)
+
+formula_sin_nas <- as.formula(paste("~", paste(vars_sin_nas, collapse = " + ")))
+
+
+vars_condicionales <- c(
+  "hrs", "w_mdsf", "w_mdsf_hrs", "informal_work"
+)
+
+formula_condicional <- as.formula(paste("~", paste(vars_condicionales, collapse = " + ")))
+
+
+vars_separadas <- c(
+  "ind_hacina", "esc", "pobreza_multi", "disc_wg"
+)
+```
+
+```{r}
+lista_genero <- list(panel_hetero, panel_LG, panel_bisexual, panel_other)
+
+resultados_lista <- lapply(lista_genero, function(diseno_actual) {
+
+  res_sin_nas <- svyby(
+    formula = formula_sin_nas, 
+    by = ~sexo,          
+    design = diseno_actual, 
+    FUN = svymean, 
+    na.rm = TRUE
+  )
+
+  diseno_ocupados <- subset(diseno_actual, activ == 1)
+
+
+  # Cada resultado usa sus propios casos observados. En particular,
+  # informalidad no exige horas ni ingresos observados.
+  res_condicionales <- lapply(vars_condicionales, function(var) {
+    res <- svyby(
+      formula = reformulate(var), by = ~sexo,
+      design = diseno_ocupados, FUN = svymean, na.rm = TRUE
+    )
+    names(res)[names(res) == "se"] <- paste0("se.", var)
+    res
+  })
+  res_condicionales <- Reduce(
+    function(a, b) full_join(a, b, by = "sexo"), res_condicionales
+  )
+
+  res_separadas <- lapply(vars_separadas, function(var) {
+    temp_res <- svyby(
+      formula = as.formula(paste("~", var)), 
+      by = ~sexo,          
+      design = diseno_actual, 
+      FUN = svymean, 
+      na.rm = TRUE
+    )
+
+
+    names(temp_res)[names(temp_res) == "se"] <- paste0("se.", var)
+    return(temp_res)
+  })
+  names(res_separadas) <- vars_separadas
+  return(list(
+    Sin_NAs = res_sin_nas,
+    Condicionales = res_condicionales,
+    Separadas = res_separadas
+  ))
+})
+```
+
+```{r}
+
+orden_columnas <- c(
+  "Variable",
+  "AMAB_Hetero", "AMAB_LG", "AMAB_Bisexual", "AMAB_Other",
+  "AFAB_Hetero", "AFAB_LG", "AFAB_Bisexual", "AFAB_Other"
+)
+
+
+names(resultados_lista) <- c("Hetero", "LG", "Bisexual", "Other")
+
+
+unificar_resultados <- function(lista_identidad) {
+
+  df_base <- left_join(lista_identidad$Sin_NAs, lista_identidad$Condicionales, by = "sexo")
+  
+
+  for (df_sep in lista_identidad$Separadas) {
+    df_base <- left_join(df_base, df_sep, by = "sexo")
+  }
+  
+  return(df_base)
+}
+
+
+tabla_cruda <- bind_rows(lapply(resultados_lista, unificar_resultados), .id = "OS")
+
+
+EEDD_os <- tabla_cruda %>%
+
+  mutate(sexo_recod = if_else(sexo == 1, "AMAB", "AFAB")) %>%
+  
+
+  mutate(Grupo = paste(sexo_recod, OS, sep = "_")) %>%
+  
+
+  select(-sexo, -sexo_recod, -OS) %>%
+  
+
+  pivot_longer(
+    cols = -Grupo,
+    names_to = "Variable",
+    values_to = "Valor"
+  ) %>%
+  
+
+  mutate(
+    Es_SE = grepl("^se\\.", Variable),
+    Variable = sub("^se\\.", "", Variable)
+  ) %>%
+  
+  mutate(
+    Orden_Seccion = case_when(
+      Variable %in% vars_top ~ 1,
+      Variable %in% vars_IG ~ 2,
+      Variable %in% vars_condicionales ~ 4,
+      TRUE ~ 3
+    ),
+
+    Orden_Interno = match(Variable, c(vars_top, vars_IG, vars_condicionales)),
+    Orden_Interno = if_else(is.na(Orden_Interno), 999, Orden_Interno)
+  ) %>%
+  
+
+  mutate(
+    Valor_Fmt = trimws(formatC(Valor, format = "f", big.mark = ",", digits = 3)),
+    Valor_Texto = if_else(Es_SE, 
+                          paste0("(", Valor_Fmt, ")"), 
+                          Valor_Fmt)
+  ) %>%
+  
+
+  arrange(Orden_Seccion, Orden_Interno, Variable, Grupo, Es_SE) %>%
+  select(Variable, Es_SE, Grupo, Valor_Texto) %>%
+  
+
+  pivot_wider(
+    names_from = Grupo,
+    values_from = Valor_Texto
+  ) %>%
+  
+
+  mutate(Variable = if_else(Es_SE, "", Variable)) %>%
+  
+
+  select(all_of(orden_columnas))
+
+
+write.csv(EEDD_os, "Inter_Tables/EEDD_os.csv")
+```
+
+```{r}
+
+
+names(lista_genero) <- c("Hetero", "LG", "Bisexual", "Other")
+
+
+contar_obs <- function(diseno, cond_trabajo = FALSE) {
+  df <- diseno$variables
+  if (cond_trabajo) df <- df %>% filter(activ == 1)
+  
+  c(AMAB = sum(df$sexo == 1, na.rm = TRUE),
+    AFAB = sum(df$sexo != 1, na.rm = TRUE))
+}
+
+
+n_full <- sapply(lista_genero, function(d) contar_obs(d, cond_trabajo = FALSE))
+n_cond <- sapply(lista_genero, function(d) contar_obs(d, cond_trabajo = TRUE))
+
+# Denominadores observados de cada resultado del panel B, por subgrupo.
+# No se confunden con N observations, que cuenta todos los ocupados.
+n_por_resultado <- bind_rows(lapply(names(lista_genero), function(g) {
+  v <- lista_genero[[g]]$variables
+  bind_rows(lapply(c(1, 2), function(s) {
+    bind_rows(lapply(vars_condicionales, function(y) {
+      m <- v$activ %in% 1 & v$sexo %in% s
+      data.frame(orientacion = g, sexo = s, variable = y,
+                 N_ocupados = sum(m),
+                 N_observados = sum(m & !is.na(v[[y]])),
+                 N_faltantes = sum(m & is.na(v[[y]])))
+    }))
+  }))
+}))
+write.csv(n_por_resultado, "Inter_Tables/N_descriptivos_condicionales.csv",
+          row.names = FALSE)
+
+
+
+diccionario_vars <- c(
+  "cis" = "Cis",
+  "TRANS" = "Trans",
+  "Pension" = "Social Security",
+  "Urbano" = "Urban",
+  "activ" = "Employed",
+  "analfabetismo" = "Illiterate",
+  "GM" = "Gender Minority",
+  "men11c" = "Household members aged under 11",
+  "casado" = "Married",
+  "disc_wg" = "Disabled Person",
+  "edad" = "Age",
+  "esc" = "Years of schooling",
+  "extranjero" = "Inmigrant",
+  "ind_hacina" = "Overcrowding",
+  "informal_work" = "Informal worker",
+  "men11c" = "Numbers of kids $<$ 11",
+  "pareja" = "Partnered",
+  "pobreza_multi" = "Multidimensional Poverty",
+  "pueblos_indigenas" = "Indigenous",
+  "salud" = "Health Status",
+  "soltero" = "Single",
+  "y_mdsf_1000" = "Non-labor income$^1$",
+  "hrs" = "Hours worked per week",
+  "w_mdsf" = "Monthly Labor Income$^1$",
+  "w_mdsf_hrs" = "Hourly wage$^1$"
+)
+
+
+EEDD_proc <- EEDD_os %>%
+  mutate(Variable_Padre = if_else(Variable == "", NA_character_, Variable)) %>%
+  fill(Variable_Padre, .direction = "down")
+
+tabla_full <- EEDD_proc %>% filter(!(Variable_Padre %in% vars_condicionales)) %>% select(-Variable_Padre)
+tabla_cond <- EEDD_proc %>% filter(Variable_Padre %in% vars_condicionales) %>% select(-Variable_Padre)
+
+
+generar_filas <- function(df) {
+  filas <- apply(df, 1, function(row) {
+
+    var_nom <- row["Variable"]
+    if(var_nom != "" && var_nom %in% names(diccionario_vars)) {
+      var_nom <- diccionario_vars[[var_nom]]
+    }
+    
+
+    cols <- c(
+      var_nom, 
+      row["AMAB_Hetero"], row["AMAB_LG"], row["AMAB_Bisexual"], row["AMAB_Other"], 
+      "", "", 
+      row["AFAB_Hetero"], row["AFAB_LG"], row["AFAB_Bisexual"], row["AFAB_Other"]
+    )
+    
+    cols[is.na(cols)] <- ""
+    
+    paste0(paste(cols, collapse = " & "), " \\\\")
+  })
+  paste(filas, collapse = "\n")
+}
+
+
+latex_out <- sprintf("
+\\begin{table}[htbp]
+\\centering
+\\caption{Descriptive Statistics by Sexual Orientation}
+\\resizebox{\\textwidth}{!}{
+\\begin{tabular}{lccccc|ccccc}
+\\hline
+                      & \\multicolumn{4}{c}{AMAB}                                                                                                                                           & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & \\multicolumn{4}{c}{AFAB}                                                                                                                                           \\\\ \\cline{2-5} \\cline{8-11} 
+                      & Heterosexual                  & Lesbian/Gay                & Bisexual           & \\begin{tabular}[c]{@{}c@{}}Other\\end{tabular} & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & Heterosexual                  & Lesbian/Gay                & Bisexual           & \\begin{tabular}[c]{@{}c@{}}Other\\end{tabular} \\\\ \\hline
+\\multicolumn{5}{l}{\\textit{Panel A: Full Sample}}                                                                                                                                         & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{}                                      \\\\
+%s\\hline
+N observations        & %d & %d & %d & %d & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & %d & %d & %d & %d \\\\ \\hline
+\\multicolumn{5}{l}{\\textit{Panel B: Conditional on work}}                                                                                                                                 & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{} & \\multicolumn{1}{l}{}                                      \\\\
+%s\\hline
+N observations        & %d & %d & %d & %d & \\multicolumn{1}{l|}{} & \\multicolumn{1}{l}{} & %d & %d & %d & %d \\\\ \\hline
+\\end{tabular}
+}
+
+\\vspace{1ex}
+\\raggedright
+\\footnotesize\\textit{Note:} Weighted means and standard errors computed using the complex survey design of the CASEN OSIG module. Panel A contains the full sample; Panel B contains the sample conditional on working. Each Panel B mean uses observations with a nonmissing value of that outcome. Informality follows the CASEN operational algorithm (MDSF, 2026, Technical Note 7), using the same literal rule as the main labor models. Its denominator consists of employed respondents with classifiable informality; unclassified cases are not coded as formal. N observations reports all respondents in the corresponding panel, not the outcome-specific valid counts. \\\\
+$^1$ Expressed in thousands of chilean pesos. Exchange was 1 USD dollar for 870 chilean pesos aprox in 2022. Wages and income are measured in real unities for 2022 using IPC from INE.
+\\end{table}
+", 
+generar_filas(tabla_full),
+n_full["AMAB", "Hetero"], n_full["AMAB", "LG"], n_full["AMAB", "Bisexual"], n_full["AMAB", "Other"],
+n_full["AFAB", "Hetero"], n_full["AFAB", "LG"], n_full["AFAB", "Bisexual"], n_full["AFAB", "Other"],
+generar_filas(tabla_cond),
+n_cond["AMAB", "Hetero"], n_cond["AMAB", "LG"], n_cond["AMAB", "Bisexual"], n_cond["AMAB", "Other"],
+n_cond["AFAB", "Hetero"], n_cond["AFAB", "LG"], n_cond["AFAB", "Bisexual"], n_cond["AFAB", "Other"]
+)
+
+
+cat(latex_out)
+
+cat(latex_out, file = "Tables/EEDD_os.tex")
+```
+

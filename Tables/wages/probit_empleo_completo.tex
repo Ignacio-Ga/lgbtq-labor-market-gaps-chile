@@ -1,0 +1,73 @@
+% Requires graphicx.
+\begin{table}[htpb]
+\caption{Employment Selection Probit: Full Coefficients}
+\label{tab:wages_selection_full}
+\centering
+\begin{tabular}{l c}
+\hline
+ & Employment \\
+\hline
+Constant & $-3.977^{***}$ \\
+ & $(0.067)$ \\
+AFAB & $-0.664^{***}$ \\
+ & $(0.012)$ \\
+Gender minority & $-0.122$ \\
+ & $(0.078)$ \\
+Gay/Lesbian & $-0.228^{***}$ \\
+ & $(0.055)$ \\
+Bisexual & $-0.435^{***}$ \\
+ & $(0.085)$ \\
+Other sexual orientation & $-0.493^{*}$ \\
+ & $(0.201)$ \\
+AFAB $\times$ Gender minority & $0.047$ \\
+ & $(0.101)$ \\
+AFAB $\times$ Gay/Lesbian & $0.629^{***}$ \\
+ & $(0.102)$ \\
+AFAB $\times$ Bisexual & $0.680^{***}$ \\
+ & $(0.094)$ \\
+AFAB $\times$ Other sexual orientation & $0.674^{**}$ \\
+ & $(0.241)$ \\
+Age & $0.191^{***}$ \\
+ & $(0.003)$ \\
+Age squared & $-0.002^{***}$ \\
+ & $(3.35\times 10^{-5})$ \\
+Years of schooling & $0.074^{***}$ \\
+ & $(0.002)$ \\
+Household child count (men11c) & $-0.022^{**}$ \\
+ & $(0.007)$ \\
+Non-labor income per capita & $-4.33\times 10^{-7}^{***}$ \\
+ & $(3.58\times 10^{-8})$ \\
+Disability & $-0.011$ \\
+ & $(0.008)$ \\
+Immigrant & $0.298^{***}$ \\
+ & $(0.024)$ \\
+Indigenous & $0.013$ \\
+ & $(0.016)$ \\
+Rural & $-0.078^{***}$ \\
+ & $(0.014)$ \\
+Year 2024 & $0.036^{***}$ \\
+ & $(0.011)$ \\
+Cohabiting without civil union & $0.248^{***}$ \\
+ & $(0.014)$ \\
+Civil union & $0.218^{**}$ \\
+ & $(0.075)$ \\
+Annulled & $0.342^{*}$ \\
+ & $(0.155)$ \\
+Separated & $0.205^{***}$ \\
+ & $(0.025)$ \\
+Divorced & $0.349^{***}$ \\
+ & $(0.029)$ \\
+Widowed & $0.162^{***}$ \\
+ & $(0.037)$ \\
+Single & $0.056^{***}$ \\
+ & $(0.014)$ \\
+\hline
+Num. obs. & $147,445$ \\
+\hline
+\multicolumn{2}{l}{\scriptsize $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\dagger}p<0.10$.} \\
+\end{tabular}%
+\par\smallskip
+\begin{minipage}{\textwidth}\footnotesize\raggedright
+\textit{Note:} Authors' calculations using CASEN 2022 and 2024. Entries are original regression coefficients, with survey-design standard errors in parentheses. Models jointly include assigned sex, gender-minority status, sexual orientation, and the reported interactions. These coefficients are not the average contrasts reported in the main tables. Region fixed effects are included but omitted from the table. Year effects are displayed. Marital-status category 1 is the reference. The dependent variable equals one for employed respondents and zero for unemployed or inactive respondents. Entries are employment-probit index coefficients, not marginal effects. Non-labor household income per capita is ypchtotcor minus ypchtrabcor, in levels. The household child-count control is men11c. Conventional R-squared is not reported for the probit. Small nonzero coefficients and standard errors use scientific notation where necessary. Stars use each model's coefficient-summary p-values.
+\end{minipage}
+\end{table}

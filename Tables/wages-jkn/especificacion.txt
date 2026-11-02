@@ -1,0 +1,8 @@
+Salarios conjuntos trans/NB: NB prioritario, residual GM excluido.
+Estado civil separado: factor(ecivil). SOGI no clasificable excluido.
+ing_nl = ypchtotcor - ypchtrabcor, en niveles; ceros y diferencias negativas validas se conservan; sin imputar NA como cero.
+Control de ninos en seleccion: men11c del panel, sin modificar su corte de edad.
+Horas mensuales = horas semanales * 4.33.
+Contrastes de genero promediados sobre la orientacion observada de cada muestra.
+Una lambda comun; covarianza de segunda etapa condicional a lambda fija.
+Replicas JKn: 24574

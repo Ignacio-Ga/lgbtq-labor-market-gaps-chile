@@ -1,0 +1,12 @@
+Formula: AFAB * (Trans_explicit + NB_explicit + LG + bisexual + Other) + edad + edad2 + esc + factor(area) + factor(ecivil) + men11c + disc_wg + extranjero + pueblos_indigenas + factor(region) + factor(year) + ing_nl
+Non-labor household income per capita is ypchtotcor minus ypchtrabcor, in levels. Both sources are already per capita; missing or invalid sources are not imputed as zero. Valid negative differences are retained.
+Estado civil: factor(ecivil), categorias separadas.
+Horas: log(hrs * 4.33). Informalidad: algoritmo NT7, regla literal por defecto.
+NB y trans mutuamente excluyentes; residuo GM excluido.
+Replicas JKn del diseno completo: 24574
+Contrastes promedio ponderados; metodo delta con vcov JKn.
+Sin checkpoints ni archivos de modelos RDS; resultados CSV actualizados tras cada modelo.
+Modelos gaussianos con enlace identidad: MPL binarios y modelo lineal para log horas.
+Contrastes binarios sin multiplicar por 100; R2 ponderado y N una vez al final.
+Ocupaciones feminizadas: proporcion ponderada de mujeres >= 0.50, CIUO-08 de 3 digitos; CASEN completa 2022-2024, ocupados de 18-65, pesos expr.
+Control de ninos: men11c del panel, sin reconstruir ni modificar su corte de edad.

@@ -1,0 +1,1 @@
+RHS heredado: AFAB * (GM + LG + bisexual + Other) + edad + edad2 + esc + factor(area) + factor(ecivil) + men11c + disc_wg + extranjero + pueblos_indigenas + factor(region) + factor(year) + ing_nl

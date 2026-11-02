@@ -1,0 +1,625 @@
+"periodo","dimension","grupo","resultado","N_subgrupo","N_total_modelo_periodo","porcentaje_N_modelo","porcentaje_ponderado_modelo"
+"2022-2024","Total","Total","Employed_population",147445,147445,100,100
+"2022-2024","Total","Total","Employed",103083,103083,100,100
+"2022-2024","Total","Total","Labor_force",147445,147445,100,100
+"2022-2024","Total","Total","Self_employed",93908,93908,100,100
+"2022-2024","Total","Total","Public_sector",93908,93908,100,100
+"2022-2024","Total","Total","Feminized_sector",93908,93908,100,100
+"2022-2024","Total","Total","Monthly_hours",93358,93358,100,100
+"2022-2024","Total","Total","Informal_worker",93772,93772,100,100
+"2022-2024","Genero agregado","GM total","Employed_population",1418,147445,0.961714537624199,1.03968445701418
+"2022-2024","Genero agregado","GM total","Employed",971,103083,0.941959391946296,0.983494753053897
+"2022-2024","Genero agregado","GM total","Labor_force",1418,147445,0.961714537624199,1.03968445701418
+"2022-2024","Genero agregado","GM total","Self_employed",857,93908,0.912595306044213,0.964595241586295
+"2022-2024","Genero agregado","GM total","Public_sector",857,93908,0.912595306044213,0.964595241586295
+"2022-2024","Genero agregado","GM total","Feminized_sector",857,93908,0.912595306044213,0.964595241586295
+"2022-2024","Genero agregado","GM total","Monthly_hours",846,93358,0.906189078600656,0.959461855906987
+"2022-2024","Genero agregado","GM total","Informal_worker",855,93772,0.911786034210639,0.963834214893677
+"2022-2024","Genero agregado","Cis total","Employed_population",146027,147445,99.0382854623758,98.9603155429858
+"2022-2024","Genero agregado","Cis total","Employed",102112,103083,99.0580406080537,99.0165052469461
+"2022-2024","Genero agregado","Cis total","Labor_force",146027,147445,99.0382854623758,98.9603155429858
+"2022-2024","Genero agregado","Cis total","Self_employed",93051,93908,99.0874046939558,99.0354047584137
+"2022-2024","Genero agregado","Cis total","Public_sector",93051,93908,99.0874046939558,99.0354047584137
+"2022-2024","Genero agregado","Cis total","Feminized_sector",93051,93908,99.0874046939558,99.0354047584137
+"2022-2024","Genero agregado","Cis total","Monthly_hours",92512,93358,99.0938109213993,99.040538144093
+"2022-2024","Genero agregado","Cis total","Informal_worker",92917,93772,99.0882139657894,99.0361657851063
+"2022-2024","Genero agregado","Genero no clasificable","Employed_population",0,147445,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Employed",0,103083,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Labor_force",0,147445,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Self_employed",0,93908,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Public_sector",0,93908,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Feminized_sector",0,93908,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Monthly_hours",0,93358,0,0
+"2022-2024","Genero agregado","Genero no clasificable","Informal_worker",0,93772,0,0
+"2022-2024","Sexo y genero","AMAB cis","Employed_population",54896,147445,37.2315100545966,41.8767502542051
+"2022-2024","Sexo y genero","AMAB cis","Employed",46537,103083,45.1451742770389,49.2428744827526
+"2022-2024","Sexo y genero","AMAB cis","Labor_force",54896,147445,37.2315100545966,41.8767502542051
+"2022-2024","Sexo y genero","AMAB cis","Self_employed",43047,93908,45.8395450866806,49.9564656021518
+"2022-2024","Sexo y genero","AMAB cis","Public_sector",43047,93908,45.8395450866806,49.9564656021518
+"2022-2024","Sexo y genero","AMAB cis","Feminized_sector",43047,93908,45.8395450866806,49.9564656021518
+"2022-2024","Sexo y genero","AMAB cis","Monthly_hours",42755,93358,45.7968251247884,49.9280643793781
+"2022-2024","Sexo y genero","AMAB cis","Informal_worker",42976,93772,45.8303118201595,49.9539576625782
+"2022-2024","Sexo y genero","AMAB GM","Employed_population",589,147445,0.399470989182407,0.488670126995819
+"2022-2024","Sexo y genero","AMAB GM","Employed",443,103083,0.42975078334934,0.51186939021958
+"2022-2024","Sexo y genero","AMAB GM","Labor_force",589,147445,0.399470989182407,0.488670126995819
+"2022-2024","Sexo y genero","AMAB GM","Self_employed",394,93908,0.419559568939813,0.51579327616277
+"2022-2024","Sexo y genero","AMAB GM","Public_sector",394,93908,0.419559568939813,0.51579327616277
+"2022-2024","Sexo y genero","AMAB GM","Feminized_sector",394,93908,0.419559568939813,0.51579327616277
+"2022-2024","Sexo y genero","AMAB GM","Monthly_hours",387,93358,0.414533301913066,0.511905805568866
+"2022-2024","Sexo y genero","AMAB GM","Informal_worker",393,93772,0.419101650812609,0.51515191080933
+"2022-2024","Sexo y genero","AFAB cis","Employed_population",91131,147445,61.8067754077792,57.0835652887807
+"2022-2024","Sexo y genero","AFAB cis","Employed",55575,103083,53.9128663310148,49.7736307641935
+"2022-2024","Sexo y genero","AFAB cis","Labor_force",91131,147445,61.8067754077792,57.0835652887807
+"2022-2024","Sexo y genero","AFAB cis","Self_employed",50004,93908,53.2478596072752,49.0789391562619
+"2022-2024","Sexo y genero","AFAB cis","Public_sector",50004,93908,53.2478596072752,49.0789391562619
+"2022-2024","Sexo y genero","AFAB cis","Feminized_sector",50004,93908,53.2478596072752,49.0789391562619
+"2022-2024","Sexo y genero","AFAB cis","Monthly_hours",49757,93358,53.2969857966109,49.1124737647149
+"2022-2024","Sexo y genero","AFAB cis","Informal_worker",49941,93772,53.2579021456298,49.0822081225281
+"2022-2024","Sexo y genero","AFAB GM","Employed_population",829,147445,0.562243548441792,0.551014330018361
+"2022-2024","Sexo y genero","AFAB GM","Employed",528,103083,0.512208608596956,0.471625362834317
+"2022-2024","Sexo y genero","AFAB GM","Labor_force",829,147445,0.562243548441792,0.551014330018361
+"2022-2024","Sexo y genero","AFAB GM","Self_employed",463,93908,0.4930357371044,0.448801965423525
+"2022-2024","Sexo y genero","AFAB GM","Public_sector",463,93908,0.4930357371044,0.448801965423525
+"2022-2024","Sexo y genero","AFAB GM","Feminized_sector",463,93908,0.4930357371044,0.448801965423525
+"2022-2024","Sexo y genero","AFAB GM","Monthly_hours",459,93358,0.49165577668759,0.447556050338121
+"2022-2024","Sexo y genero","AFAB GM","Informal_worker",462,93772,0.492684383398029,0.448682304084348
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed_population",4259,147445,2.88853470785717,3.78003745395762
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed",3185,103083,3.08974321663126,4.10651331580523
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Labor_force",4259,147445,2.88853470785717,3.78003745395762
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Self_employed",2744,93908,2.9220087745453,3.9914776700442
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Public_sector",2744,93908,2.9220087745453,3.9914776700442
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Feminized_sector",2744,93908,2.9220087745453,3.9914776700442
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Monthly_hours",2731,93358,2.92529831401701,3.99599970697343
+"2022-2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Informal_worker",2741,93772,2.92304739154545,3.99401703770807
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Employed_population",0,147445,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Employed",0,103083,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Labor_force",0,147445,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Self_employed",0,93908,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Public_sector",0,93908,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Feminized_sector",0,93908,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Monthly_hours",0,93358,0,0
+"2022-2024","Orientacion agregada","Orientacion no clasificable","Informal_worker",0,93772,0,0
+"2022-2024","Orientacion sexual","Heterosexual","Employed_population",143186,147445,97.1114652921428,96.2199625460424
+"2022-2024","Orientacion sexual","Heterosexual","Employed",99898,103083,96.9102567833687,95.8934866841948
+"2022-2024","Orientacion sexual","Heterosexual","Labor_force",143186,147445,97.1114652921428,96.2199625460424
+"2022-2024","Orientacion sexual","Heterosexual","Self_employed",91164,93908,97.0779912254547,96.0085223299558
+"2022-2024","Orientacion sexual","Heterosexual","Public_sector",91164,93908,97.0779912254547,96.0085223299558
+"2022-2024","Orientacion sexual","Heterosexual","Feminized_sector",91164,93908,97.0779912254547,96.0085223299558
+"2022-2024","Orientacion sexual","Heterosexual","Monthly_hours",90627,93358,97.074701685983,96.0040002930266
+"2022-2024","Orientacion sexual","Heterosexual","Informal_worker",91031,93772,97.0769526084545,96.0059829622919
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Employed_population",53784,147445,36.4773305300281,40.3864866229331
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Employed",45645,103083,44.2798521579698,47.4715721295116
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Labor_force",53784,147445,36.4773305300281,40.3864866229331
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Self_employed",42258,93908,44.9993610767986,48.1820220605472
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Public_sector",42258,93908,44.9993610767986,48.1820220605472
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Feminized_sector",42258,93908,44.9993610767986,48.1820220605472
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Monthly_hours",41965,93358,44.9506201932346,48.145315958299
+"2022-2024","Sexo y orientacion","AMAB Heterosexual","Informal_worker",42187,93772,44.9889092692915,48.1772287625919
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Employed_population",89402,147445,60.6341347621147,55.8334759231093
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Employed",54253,103083,52.630404625399,48.4219145546832
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Labor_force",89402,147445,60.6341347621147,55.8334759231093
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Self_employed",48906,93908,52.0786301486561,47.8265002694086
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Public_sector",48906,93908,52.0786301486561,47.8265002694086
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Feminized_sector",48906,93908,52.0786301486561,47.8265002694086
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Monthly_hours",48662,93358,52.1240814927483,47.8586843347276
+"2022-2024","Sexo y orientacion","AFAB Heterosexual","Informal_worker",48844,93772,52.0880433391631,47.8287541997001
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Employed_population",1001,147445,0.678897215911018,0.714186728342251
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Employed",680,103083,0.659662601980928,0.671706087886757
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Labor_force",1001,147445,0.678897215911018,0.714186728342251
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Self_employed",614,93908,0.653831409464582,0.671674988819021
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Public_sector",614,93908,0.653831409464582,0.671674988819021
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Feminized_sector",614,93908,0.653831409464582,0.671674988819021
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Monthly_hours",605,93358,0.648043017202596,0.665544599084012
+"2022-2024","Interseccion GM y orientacion","GM Heterosexual","Informal_worker",613,93772,0.653713261954528,0.671842372246343
+"2022-2024","Orientacion sexual","LG","Employed_population",1982,147445,1.34423005188375,1.96384239521007
+"2022-2024","Orientacion sexual","LG","Employed",1636,103083,1.58707061300117,2.31909512102013
+"2022-2024","Orientacion sexual","LG","Labor_force",1982,147445,1.34423005188375,1.96384239521007
+"2022-2024","Orientacion sexual","LG","Self_employed",1467,93908,1.56216722749925,2.33616518444659
+"2022-2024","Orientacion sexual","LG","Public_sector",1467,93908,1.56216722749925,2.33616518444659
+"2022-2024","Orientacion sexual","LG","Feminized_sector",1467,93908,1.56216722749925,2.33616518444659
+"2022-2024","Orientacion sexual","LG","Monthly_hours",1462,93358,1.56601469611603,2.33942884638402
+"2022-2024","Orientacion sexual","LG","Informal_worker",1466,93772,1.5633664633366,2.33786832997829
+"2022-2024","Sexo y orientacion","AMAB LG","Employed_population",1138,147445,0.77181321848825,1.4118251367083
+"2022-2024","Sexo y orientacion","AMAB LG","Employed",948,103083,0.919647274526353,1.70506150454142
+"2022-2024","Sexo y orientacion","AMAB LG","Labor_force",1138,147445,0.77181321848825,1.4118251367083
+"2022-2024","Sexo y orientacion","AMAB LG","Self_employed",852,93908,0.907270946032287,1.73286513076395
+"2022-2024","Sexo y orientacion","AMAB LG","Public_sector",852,93908,0.907270946032287,1.73286513076395
+"2022-2024","Sexo y orientacion","AMAB LG","Feminized_sector",852,93908,0.907270946032287,1.73286513076395
+"2022-2024","Sexo y orientacion","AMAB LG","Monthly_hours",849,93358,0.909402515049594,1.73561197517921
+"2022-2024","Sexo y orientacion","AMAB LG","Informal_worker",851,93772,0.907520368553513,1.73379126829173
+"2022-2024","Sexo y orientacion","AFAB LG","Employed_population",844,147445,0.572416833395503,0.552017258501767
+"2022-2024","Sexo y orientacion","AFAB LG","Employed",688,103083,0.667423338474821,0.614033616478703
+"2022-2024","Sexo y orientacion","AFAB LG","Labor_force",844,147445,0.572416833395503,0.552017258501767
+"2022-2024","Sexo y orientacion","AFAB LG","Self_employed",615,93908,0.654896281466968,0.603300053682636
+"2022-2024","Sexo y orientacion","AFAB LG","Public_sector",615,93908,0.654896281466968,0.603300053682636
+"2022-2024","Sexo y orientacion","AFAB LG","Feminized_sector",615,93908,0.654896281466968,0.603300053682636
+"2022-2024","Sexo y orientacion","AFAB LG","Monthly_hours",613,93358,0.656612181066432,0.603816871204816
+"2022-2024","Sexo y orientacion","AFAB LG","Informal_worker",615,93772,0.655846094783091,0.604077061686566
+"2022-2024","Interseccion GM y orientacion","GM LG","Employed_population",172,147445,0.116653667469226,0.128503600208311
+"2022-2024","Interseccion GM y orientacion","GM LG","Employed",132,103083,0.128052152149239,0.133329419833351
+"2022-2024","Interseccion GM y orientacion","GM LG","Labor_force",172,147445,0.116653667469226,0.128503600208311
+"2022-2024","Interseccion GM y orientacion","GM LG","Self_employed",114,93908,0.121395408271926,0.127910600742837
+"2022-2024","Interseccion GM y orientacion","GM LG","Public_sector",114,93908,0.121395408271926,0.127910600742837
+"2022-2024","Interseccion GM y orientacion","GM LG","Feminized_sector",114,93908,0.121395408271926,0.127910600742837
+"2022-2024","Interseccion GM y orientacion","GM LG","Monthly_hours",114,93358,0.122110585059663,0.128599433081659
+"2022-2024","Interseccion GM y orientacion","GM LG","Informal_worker",113,93772,0.120505054813804,0.126769669805825
+"2022-2024","Orientacion sexual","Bisexual","Employed_population",1970,147445,1.33609142392078,1.5869716879388
+"2022-2024","Orientacion sexual","Bisexual","Employed",1334,103083,1.2941028103567,1.55846021520118
+"2022-2024","Orientacion sexual","Bisexual","Labor_force",1970,147445,1.33609142392078,1.5869716879388
+"2022-2024","Orientacion sexual","Bisexual","Self_employed",1105,93908,1.17668356263577,1.45521451702699
+"2022-2024","Orientacion sexual","Bisexual","Public_sector",1105,93908,1.17668356263577,1.45521451702699
+"2022-2024","Orientacion sexual","Bisexual","Feminized_sector",1105,93908,1.17668356263577,1.45521451702699
+"2022-2024","Orientacion sexual","Bisexual","Monthly_hours",1098,93358,1.17611774031149,1.45571555927043
+"2022-2024","Orientacion sexual","Bisexual","Informal_worker",1104,93772,1.17732372136672,1.45646081288272
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Employed_population",481,147445,0.326223337515684,0.486799800905143
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Employed",326,103083,0.316250012126151,0.494003412037221
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Labor_force",481,147445,0.326223337515684,0.486799800905143
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Self_employed",282,93908,0.300293904672658,0.484039593955015
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Public_sector",282,93908,0.300293904672658,0.484039593955015
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Feminized_sector",282,93908,0.300293904672658,0.484039593955015
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Monthly_hours",280,93358,0.299920735234259,0.485635493363469
+"2022-2024","Sexo y orientacion","AMAB Bisexual","Informal_worker",282,93772,0.300729428827369,0.484663002881346
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Employed_population",1489,147445,1.0098680864051,1.10017188703366
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Employed",1008,103083,0.977852798230552,1.06445680316396
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Labor_force",1489,147445,1.0098680864051,1.10017188703366
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Self_employed",823,93908,0.876389657963113,0.971174923071977
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Public_sector",823,93908,0.876389657963113,0.971174923071977
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Feminized_sector",823,93908,0.876389657963113,0.971174923071977
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Monthly_hours",818,93358,0.87619700507723,0.970080065906959
+"2022-2024","Sexo y orientacion","AFAB Bisexual","Informal_worker",822,93772,0.876594292539351,0.971797810001378
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Employed_population",157,147445,0.106480382515514,0.124647746782243
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Employed",95,103083,0.0921587458649826,0.104361012351954
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Labor_force",157,147445,0.106480382515514,0.124647746782243
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Self_employed",75,93908,0.0798654001788985,0.0940366883437807
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Public_sector",75,93908,0.0798654001788985,0.0940366883437807
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Feminized_sector",75,93908,0.0798654001788985,0.0940366883437807
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Monthly_hours",74,93358,0.0792647657404829,0.0942828995379227
+"2022-2024","Interseccion GM y orientacion","GM Bisexual","Informal_worker",75,93772,0.0799812310711086,0.094157800979293
+"2022-2024","Orientacion sexual","Other","Employed_population",307,147445,0.20821323205263,0.22922337080875
+"2022-2024","Orientacion sexual","Other","Employed",215,103083,0.208569793273382,0.228957979583927
+"2022-2024","Orientacion sexual","Other","Labor_force",307,147445,0.20821323205263,0.22922337080875
+"2022-2024","Orientacion sexual","Other","Self_employed",172,93908,0.183157984410274,0.200097968570623
+"2022-2024","Orientacion sexual","Other","Public_sector",172,93908,0.183157984410274,0.200097968570623
+"2022-2024","Orientacion sexual","Other","Feminized_sector",172,93908,0.183157984410274,0.200097968570623
+"2022-2024","Orientacion sexual","Other","Monthly_hours",171,93358,0.183165877589494,0.20085530131898
+"2022-2024","Orientacion sexual","Other","Informal_worker",171,93772,0.182357206842128,0.199687894847056
+"2022-2024","Sexo y orientacion","AMAB Other","Employed_population",82,147445,0.0556139577469565,0.0803088206543634
+"2022-2024","Sexo y orientacion","AMAB Other","Employed",61,103083,0.0591756157659362,0.0841068268819529
+"2022-2024","Sexo y orientacion","AMAB Other","Labor_force",82,147445,0.0556139577469565,0.0803088206543634
+"2022-2024","Sexo y orientacion","AMAB Other","Self_employed",49,93908,0.0521787281168804,0.0733320930484421
+"2022-2024","Sexo y orientacion","AMAB Other","Public_sector",49,93908,0.0521787281168804,0.0733320930484421
+"2022-2024","Sexo y orientacion","AMAB Other","Feminized_sector",49,93908,0.0521787281168804,0.0733320930484421
+"2022-2024","Sexo y orientacion","AMAB Other","Monthly_hours",48,93358,0.0514149831830159,0.0734067581053671
+"2022-2024","Sexo y orientacion","AMAB Other","Informal_worker",49,93772,0.052254404299791,0.0734265396225734
+"2022-2024","Sexo y orientacion","AFAB Other","Employed_population",225,147445,0.152599274305673,0.148914550154387
+"2022-2024","Sexo y orientacion","AFAB Other","Employed",154,103083,0.149394177507445,0.144851152701974
+"2022-2024","Sexo y orientacion","AFAB Other","Labor_force",225,147445,0.152599274305673,0.148914550154387
+"2022-2024","Sexo y orientacion","AFAB Other","Self_employed",123,93908,0.130979256293394,0.126765875522181
+"2022-2024","Sexo y orientacion","AFAB Other","Public_sector",123,93908,0.130979256293394,0.126765875522181
+"2022-2024","Sexo y orientacion","AFAB Other","Feminized_sector",123,93908,0.130979256293394,0.126765875522181
+"2022-2024","Sexo y orientacion","AFAB Other","Monthly_hours",123,93358,0.131750894406478,0.127448543213613
+"2022-2024","Sexo y orientacion","AFAB Other","Informal_worker",122,93772,0.130102802542337,0.126261355224482
+"2022-2024","Interseccion GM y orientacion","GM Other","Employed_population",88,147445,0.0596832717284411,0.0723463816813757
+"2022-2024","Interseccion GM y orientacion","GM Other","Employed",64,103083,0.0620858919511462,0.0740982329818354
+"2022-2024","Interseccion GM y orientacion","GM Other","Labor_force",88,147445,0.0596832717284411,0.0723463816813757
+"2022-2024","Interseccion GM y orientacion","GM Other","Self_employed",54,93908,0.0575030881288069,0.0709729636806559
+"2022-2024","Interseccion GM y orientacion","GM Other","Public_sector",54,93908,0.0575030881288069,0.0709729636806559
+"2022-2024","Interseccion GM y orientacion","GM Other","Feminized_sector",54,93908,0.0575030881288069,0.0709729636806559
+"2022-2024","Interseccion GM y orientacion","GM Other","Monthly_hours",53,93358,0.0567707105979134,0.0710349242033941
+"2022-2024","Interseccion GM y orientacion","GM Other","Informal_worker",54,93772,0.0575864863711982,0.0710643718622165
+"2022","Total","Total","Employed_population",69760,69760,100,100
+"2022","Total","Total","Employed",47518,47518,100,100
+"2022","Total","Total","Labor_force",69760,69760,100,100
+"2022","Total","Total","Self_employed",43267,43267,100,100
+"2022","Total","Total","Public_sector",43267,43267,100,100
+"2022","Total","Total","Feminized_sector",43267,43267,100,100
+"2022","Total","Total","Monthly_hours",42899,42899,100,100
+"2022","Total","Total","Informal_worker",43181,43181,100,100
+"2022","Genero agregado","GM total","Employed_population",771,69760,1.10521788990826,1.20657768188576
+"2022","Genero agregado","GM total","Employed",514,47518,1.08169535754872,1.15338838863398
+"2022","Genero agregado","GM total","Labor_force",771,69760,1.10521788990826,1.20657768188576
+"2022","Genero agregado","GM total","Self_employed",456,43267,1.05392100214944,1.13635773045275
+"2022","Genero agregado","GM total","Public_sector",456,43267,1.05392100214944,1.13635773045275
+"2022","Genero agregado","GM total","Feminized_sector",456,43267,1.05392100214944,1.13635773045275
+"2022","Genero agregado","GM total","Monthly_hours",447,42899,1.04198233059046,1.12766878469488
+"2022","Genero agregado","GM total","Informal_worker",454,43181,1.0513883420949,1.13419750960125
+"2022","Genero agregado","Cis total","Employed_population",68989,69760,98.8947821100917,98.7934223181142
+"2022","Genero agregado","Cis total","Employed",47004,47518,98.9183046424513,98.846611611366
+"2022","Genero agregado","Cis total","Labor_force",68989,69760,98.8947821100917,98.7934223181142
+"2022","Genero agregado","Cis total","Self_employed",42811,43267,98.9460789978505,98.8636422695472
+"2022","Genero agregado","Cis total","Public_sector",42811,43267,98.9460789978505,98.8636422695472
+"2022","Genero agregado","Cis total","Feminized_sector",42811,43267,98.9460789978505,98.8636422695472
+"2022","Genero agregado","Cis total","Monthly_hours",42452,42899,98.9580176694095,98.8723312153051
+"2022","Genero agregado","Cis total","Informal_worker",42727,43181,98.9486116579051,98.8658024903987
+"2022","Genero agregado","Genero no clasificable","Employed_population",0,69760,0,0
+"2022","Genero agregado","Genero no clasificable","Employed",0,47518,0,0
+"2022","Genero agregado","Genero no clasificable","Labor_force",0,69760,0,0
+"2022","Genero agregado","Genero no clasificable","Self_employed",0,43267,0,0
+"2022","Genero agregado","Genero no clasificable","Public_sector",0,43267,0,0
+"2022","Genero agregado","Genero no clasificable","Feminized_sector",0,43267,0,0
+"2022","Genero agregado","Genero no clasificable","Monthly_hours",0,42899,0,0
+"2022","Genero agregado","Genero no clasificable","Informal_worker",0,43181,0,0
+"2022","Sexo y genero","AMAB cis","Employed_population",25323,69760,36.3001720183486,41.1758066827907
+"2022","Sexo y genero","AMAB cis","Employed",21311,47518,44.8482680247485,49.0780310179601
+"2022","Sexo y genero","AMAB cis","Labor_force",25323,69760,36.3001720183486,41.1758066827907
+"2022","Sexo y genero","AMAB cis","Self_employed",19714,43267,45.5635935008205,49.8174846750117
+"2022","Sexo y genero","AMAB cis","Public_sector",19714,43267,45.5635935008205,49.8174846750117
+"2022","Sexo y genero","AMAB cis","Feminized_sector",19714,43267,45.5635935008205,49.8174846750117
+"2022","Sexo y genero","AMAB cis","Monthly_hours",19527,42899,45.5185435557938,49.7957750344775
+"2022","Sexo y genero","AMAB cis","Informal_worker",19671,43181,45.554757879623,49.8199707979701
+"2022","Sexo y genero","AMAB GM","Employed_population",306,69760,0.438646788990826,0.53903256920532
+"2022","Sexo y genero","AMAB GM","Employed",229,47518,0.481922639841744,0.573318377036379
+"2022","Sexo y genero","AMAB GM","Labor_force",306,69760,0.438646788990826,0.53903256920532
+"2022","Sexo y genero","AMAB GM","Self_employed",208,43267,0.48073589571729,0.582606296804698
+"2022","Sexo y genero","AMAB GM","Public_sector",208,43267,0.48073589571729,0.582606296804698
+"2022","Sexo y genero","AMAB GM","Feminized_sector",208,43267,0.48073589571729,0.582606296804698
+"2022","Sexo y genero","AMAB GM","Monthly_hours",201,42899,0.468542390265507,0.57324210851853
+"2022","Sexo y genero","AMAB GM","Informal_worker",207,43181,0.479377503994813,0.580916717152038
+"2022","Sexo y genero","AFAB cis","Employed_population",43666,69760,62.5946100917431,57.6176156353235
+"2022","Sexo y genero","AFAB cis","Employed",25693,47518,54.0700366177028,49.7685805934059
+"2022","Sexo y genero","AFAB cis","Labor_force",43666,69760,62.5946100917431,57.6176156353235
+"2022","Sexo y genero","AFAB cis","Self_employed",23097,43267,53.3824854970301,49.0461575945355
+"2022","Sexo y genero","AFAB cis","Public_sector",23097,43267,53.3824854970301,49.0461575945355
+"2022","Sexo y genero","AFAB cis","Feminized_sector",23097,43267,53.3824854970301,49.0461575945355
+"2022","Sexo y genero","AFAB cis","Monthly_hours",22925,42899,53.4394741136157,49.0765561808276
+"2022","Sexo y genero","AFAB cis","Informal_worker",23056,43181,53.3938537782821,49.0458316924286
+"2022","Sexo y genero","AFAB GM","Employed_population",465,69760,0.666571100917431,0.667545112680435
+"2022","Sexo y genero","AFAB GM","Employed",285,47518,0.599772717706974,0.580070011597597
+"2022","Sexo y genero","AFAB GM","Labor_force",465,69760,0.666571100917431,0.667545112680435
+"2022","Sexo y genero","AFAB GM","Self_employed",248,43267,0.573185106432154,0.553751433648055
+"2022","Sexo y genero","AFAB GM","Public_sector",248,43267,0.573185106432154,0.553751433648055
+"2022","Sexo y genero","AFAB GM","Feminized_sector",248,43267,0.573185106432154,0.553751433648055
+"2022","Sexo y genero","AFAB GM","Monthly_hours",246,42899,0.573439940324949,0.554426676176352
+"2022","Sexo y genero","AFAB GM","Informal_worker",247,43181,0.57201083810009,0.553280792449207
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed_population",1868,69760,2.67775229357798,3.74778859409632
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed",1394,47518,2.93362515257376,4.19649272554168
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Labor_force",1868,69760,2.67775229357798,3.74778859409632
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Self_employed",1207,43267,2.78965493332101,4.15135830942101
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Public_sector",1207,43267,2.78965493332101,4.15135830942101
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Feminized_sector",1207,43267,2.78965493332101,4.15135830942101
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Monthly_hours",1198,42899,2.79260588824914,4.15781244827328
+"2022","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Informal_worker",1204,43181,2.78826335656886,4.15332336052011
+"2022","Orientacion agregada","Orientacion no clasificable","Employed_population",0,69760,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Employed",0,47518,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Labor_force",0,69760,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Self_employed",0,43267,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Public_sector",0,43267,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Feminized_sector",0,43267,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Monthly_hours",0,42899,0,0
+"2022","Orientacion agregada","Orientacion no clasificable","Informal_worker",0,43181,0,0
+"2022","Orientacion sexual","Heterosexual","Employed_population",67892,69760,97.322247706422,96.2522114059037
+"2022","Orientacion sexual","Heterosexual","Employed",46124,47518,97.0663748474262,95.8035072744583
+"2022","Orientacion sexual","Heterosexual","Labor_force",67892,69760,97.322247706422,96.2522114059037
+"2022","Orientacion sexual","Heterosexual","Self_employed",42060,43267,97.210345066679,95.848641690579
+"2022","Orientacion sexual","Heterosexual","Public_sector",42060,43267,97.210345066679,95.848641690579
+"2022","Orientacion sexual","Heterosexual","Feminized_sector",42060,43267,97.210345066679,95.848641690579
+"2022","Orientacion sexual","Heterosexual","Monthly_hours",41701,42899,97.2073941117509,95.8421875517267
+"2022","Orientacion sexual","Heterosexual","Informal_worker",41977,43181,97.2117366434311,95.8466766394799
+"2022","Sexo y orientacion","AMAB Heterosexual","Employed_population",24881,69760,35.6665711009174,39.6489862672992
+"2022","Sexo y orientacion","AMAB Heterosexual","Employed",20948,47518,44.0843469843007,47.2152835705534
+"2022","Sexo y orientacion","AMAB Heterosexual","Labor_force",24881,69760,35.6665711009174,39.6489862672992
+"2022","Sexo y orientacion","AMAB Heterosexual","Self_employed",19395,43267,44.8263110453695,47.9118163782947
+"2022","Sexo y orientacion","AMAB Heterosexual","Public_sector",19395,43267,44.8263110453695,47.9118163782947
+"2022","Sexo y orientacion","AMAB Heterosexual","Feminized_sector",19395,43267,44.8263110453695,47.9118163782947
+"2022","Sexo y orientacion","AMAB Heterosexual","Monthly_hours",19206,42899,44.7702743653698,47.8760352154493
+"2022","Sexo y orientacion","AMAB Heterosexual","Informal_worker",19352,43181,44.8160070401334,47.9109052775036
+"2022","Sexo y orientacion","AFAB Heterosexual","Employed_population",43011,69760,61.6556766055046,56.6032251386045
+"2022","Sexo y orientacion","AFAB Heterosexual","Employed",25176,47518,52.9820278631256,48.5882237039049
+"2022","Sexo y orientacion","AFAB Heterosexual","Labor_force",43011,69760,61.6556766055046,56.6032251386045
+"2022","Sexo y orientacion","AFAB Heterosexual","Self_employed",22665,43267,52.3840340213095,47.9368253122842
+"2022","Sexo y orientacion","AFAB Heterosexual","Public_sector",22665,43267,52.3840340213095,47.9368253122842
+"2022","Sexo y orientacion","AFAB Heterosexual","Feminized_sector",22665,43267,52.3840340213095,47.9368253122842
+"2022","Sexo y orientacion","AFAB Heterosexual","Monthly_hours",22495,42899,52.437119746381,47.9661523362775
+"2022","Sexo y orientacion","AFAB Heterosexual","Informal_worker",22625,43181,52.3957296032977,47.9357713619763
+"2022","Interseccion GM y orientacion","GM Heterosexual","Employed_population",576,69760,0.825688073394495,0.880047804450439
+"2022","Interseccion GM y orientacion","GM Heterosexual","Employed",381,47518,0.801801422618797,0.836479975412639
+"2022","Interseccion GM y orientacion","GM Heterosexual","Labor_force",576,69760,0.825688073394495,0.880047804450439
+"2022","Interseccion GM y orientacion","GM Heterosexual","Self_employed",348,43267,0.804308133219313,0.846644925733029
+"2022","Interseccion GM y orientacion","GM Heterosexual","Public_sector",348,43267,0.804308133219313,0.846644925733029
+"2022","Interseccion GM y orientacion","GM Heterosexual","Feminized_sector",348,43267,0.804308133219313,0.846644925733029
+"2022","Interseccion GM y orientacion","GM Heterosexual","Monthly_hours",340,42899,0.792559267115784,0.836343872350073
+"2022","Interseccion GM y orientacion","GM Heterosexual","Informal_worker",347,43181,0.803594173363285,0.846696424052959
+"2022","Orientacion sexual","LG","Employed_population",875,69760,1.2543004587156,2.06330489116248
+"2022","Orientacion sexual","LG","Employed",724,47518,1.52363314954333,2.50428586154471
+"2022","Orientacion sexual","LG","Labor_force",875,69760,1.2543004587156,2.06330489116248
+"2022","Orientacion sexual","LG","Self_employed",656,43267,1.51616705572376,2.57423630760864
+"2022","Orientacion sexual","LG","Public_sector",656,43267,1.51616705572376,2.57423630760864
+"2022","Orientacion sexual","LG","Feminized_sector",656,43267,1.51616705572376,2.57423630760864
+"2022","Orientacion sexual","LG","Monthly_hours",651,42899,1.51751789085993,2.57501134583142
+"2022","Orientacion sexual","LG","Informal_worker",655,43181,1.51687084597392,2.57609719515149
+"2022","Sexo y orientacion","AMAB LG","Employed_population",505,69760,0.723910550458716,1.51899610654078
+"2022","Sexo y orientacion","AMAB LG","Employed",429,47518,0.902815775074709,1.88465697702504
+"2022","Sexo y orientacion","AMAB LG","Labor_force",505,69760,0.723910550458716,1.51899610654078
+"2022","Sexo y orientacion","AMAB LG","Self_employed",391,43267,0.903691034737791,1.95969840431359
+"2022","Sexo y orientacion","AMAB LG","Public_sector",391,43267,0.903691034737791,1.95969840431359
+"2022","Sexo y orientacion","AMAB LG","Feminized_sector",391,43267,0.903691034737791,1.95969840431359
+"2022","Sexo y orientacion","AMAB LG","Monthly_hours",388,42899,0.904449987179188,1.96135167719255
+"2022","Sexo y orientacion","AMAB LG","Informal_worker",390,43181,0.903175007526458,1.96046375872317
+"2022","Sexo y orientacion","AFAB LG","Employed_population",370,69760,0.530389908256881,0.544308784621702
+"2022","Sexo y orientacion","AFAB LG","Employed",295,47518,0.620817374468622,0.619628884519662
+"2022","Sexo y orientacion","AFAB LG","Labor_force",370,69760,0.530389908256881,0.544308784621702
+"2022","Sexo y orientacion","AFAB LG","Self_employed",265,43267,0.612476020985971,0.614537903295047
+"2022","Sexo y orientacion","AFAB LG","Public_sector",265,43267,0.612476020985971,0.614537903295047
+"2022","Sexo y orientacion","AFAB LG","Feminized_sector",265,43267,0.612476020985971,0.614537903295047
+"2022","Sexo y orientacion","AFAB LG","Monthly_hours",263,42899,0.613067903680738,0.613659668638865
+"2022","Sexo y orientacion","AFAB LG","Informal_worker",265,43181,0.613695838447465,0.615633436428314
+"2022","Interseccion GM y orientacion","GM LG","Employed_population",85,69760,0.121846330275229,0.150199035186541
+"2022","Interseccion GM y orientacion","GM LG","Employed",61,47518,0.128372406246054,0.153309651261909
+"2022","Interseccion GM y orientacion","GM LG","Labor_force",85,69760,0.121846330275229,0.150199035186541
+"2022","Interseccion GM y orientacion","GM LG","Self_employed",51,43267,0.117872743661451,0.146270041188862
+"2022","Interseccion GM y orientacion","GM LG","Public_sector",51,43267,0.117872743661451,0.146270041188862
+"2022","Interseccion GM y orientacion","GM LG","Feminized_sector",51,43267,0.117872743661451,0.146270041188862
+"2022","Interseccion GM y orientacion","GM LG","Monthly_hours",51,42899,0.118883890067368,0.147422474342497
+"2022","Interseccion GM y orientacion","GM LG","Informal_worker",50,43181,0.115791667631597,0.143802607440124
+"2022","Orientacion sexual","Bisexual","Employed_population",846,69760,1.21272935779817,1.46800653918352
+"2022","Orientacion sexual","Bisexual","Employed",571,47518,1.20164990109011,1.4792736230184
+"2022","Orientacion sexual","Bisexual","Labor_force",846,69760,1.21272935779817,1.46800653918352
+"2022","Orientacion sexual","Bisexual","Self_employed",477,43267,1.10245683777475,1.40299496016969
+"2022","Orientacion sexual","Bisexual","Public_sector",477,43267,1.10245683777475,1.40299496016969
+"2022","Orientacion sexual","Bisexual","Feminized_sector",477,43267,1.10245683777475,1.40299496016969
+"2022","Orientacion sexual","Bisexual","Monthly_hours",474,42899,1.10492086062612,1.40797263087935
+"2022","Orientacion sexual","Bisexual","Informal_worker",476,43181,1.10233667585281,1.40418404151345
+"2022","Sexo y orientacion","AMAB Bisexual","Employed_population",208,69760,0.298165137614679,0.484193164877577
+"2022","Sexo y orientacion","AMAB Bisexual","Employed",138,47518,0.290416263310745,0.48973123929961
+"2022","Sexo y orientacion","AMAB Bisexual","Labor_force",208,69760,0.298165137614679,0.484193164877577
+"2022","Sexo y orientacion","AMAB Bisexual","Self_employed",118,43267,0.272725171608847,0.483713945193638
+"2022","Sexo y orientacion","AMAB Bisexual","Public_sector",118,43267,0.272725171608847,0.483713945193638
+"2022","Sexo y orientacion","AMAB Bisexual","Feminized_sector",118,43267,0.272725171608847,0.483713945193638
+"2022","Sexo y orientacion","AMAB Bisexual","Monthly_hours",117,42899,0.272733630154549,0.487085028573057
+"2022","Sexo y orientacion","AMAB Bisexual","Informal_worker",118,43181,0.273268335610569,0.484576259220392
+"2022","Sexo y orientacion","AFAB Bisexual","Employed_population",638,69760,0.914564220183486,0.983813374305939
+"2022","Sexo y orientacion","AFAB Bisexual","Employed",433,47518,0.911233637779368,0.989542383718785
+"2022","Sexo y orientacion","AFAB Bisexual","Labor_force",638,69760,0.914564220183486,0.983813374305939
+"2022","Sexo y orientacion","AFAB Bisexual","Self_employed",359,43267,0.8297316661659,0.919281014976048
+"2022","Sexo y orientacion","AFAB Bisexual","Public_sector",359,43267,0.8297316661659,0.919281014976048
+"2022","Sexo y orientacion","AFAB Bisexual","Feminized_sector",359,43267,0.8297316661659,0.919281014976048
+"2022","Sexo y orientacion","AFAB Bisexual","Monthly_hours",357,42899,0.832187230471573,0.920887602306294
+"2022","Sexo y orientacion","AFAB Bisexual","Informal_worker",358,43181,0.829068340242236,0.919607782293057
+"2022","Interseccion GM y orientacion","GM Bisexual","Employed_population",66,69760,0.0946100917431193,0.10278233811124
+"2022","Interseccion GM y orientacion","GM Bisexual","Employed",42,47518,0.0883875583989225,0.0880755483183105
+"2022","Interseccion GM y orientacion","GM Bisexual","Labor_force",66,69760,0.0946100917431193,0.10278233811124
+"2022","Interseccion GM y orientacion","GM Bisexual","Self_employed",34,43267,0.078581829107634,0.0736755295584603
+"2022","Interseccion GM y orientacion","GM Bisexual","Public_sector",34,43267,0.078581829107634,0.0736755295584603
+"2022","Interseccion GM y orientacion","GM Bisexual","Feminized_sector",34,43267,0.078581829107634,0.0736755295584603
+"2022","Interseccion GM y orientacion","GM Bisexual","Monthly_hours",34,42899,0.0792559267115784,0.0742560047000866
+"2022","Interseccion GM y orientacion","GM Bisexual","Informal_worker",34,43181,0.0787383339894861,0.0738068704949746
+"2022","Orientacion sexual","Other","Employed_population",147,69760,0.21072247706422,0.216477163750323
+"2022","Orientacion sexual","Other","Employed",99,47518,0.208342101940317,0.21293324097858
+"2022","Orientacion sexual","Other","Labor_force",147,69760,0.21072247706422,0.216477163750323
+"2022","Orientacion sexual","Other","Self_employed",74,43267,0.171031039822498,0.174127041642682
+"2022","Orientacion sexual","Other","Public_sector",74,43267,0.171031039822498,0.174127041642682
+"2022","Orientacion sexual","Other","Feminized_sector",74,43267,0.171031039822498,0.174127041642682
+"2022","Orientacion sexual","Other","Monthly_hours",73,42899,0.170167136763095,0.174828471562506
+"2022","Orientacion sexual","Other","Informal_worker",73,43181,0.169055834742132,0.173042123855176
+"2022","Sexo y orientacion","AMAB Other","Employed_population",35,69760,0.0501720183486239,0.0626637132785447
+"2022","Sexo y orientacion","AMAB Other","Employed",25,47518,0.0526116419041205,0.0616776081183936
+"2022","Sexo y orientacion","AMAB Other","Labor_force",35,69760,0.0501720183486239,0.0626637132785447
+"2022","Sexo y orientacion","AMAB Other","Self_employed",18,43267,0.0416021448216886,0.0448622440144349
+"2022","Sexo y orientacion","AMAB Other","Public_sector",18,43267,0.0416021448216886,0.0448622440144349
+"2022","Sexo y orientacion","AMAB Other","Feminized_sector",18,43267,0.0416021448216886,0.0448622440144349
+"2022","Sexo y orientacion","AMAB Other","Monthly_hours",17,42899,0.0396279633557892,0.0445452217811468
+"2022","Sexo y orientacion","AMAB Other","Informal_worker",18,43181,0.041685000347375,0.0449422196749874
+"2022","Sexo y orientacion","AFAB Other","Employed_population",112,69760,0.160550458715596,0.153813450471778
+"2022","Sexo y orientacion","AFAB Other","Employed",74,47518,0.155730460036197,0.151255632860186
+"2022","Sexo y orientacion","AFAB Other","Labor_force",112,69760,0.160550458715596,0.153813450471778
+"2022","Sexo y orientacion","AFAB Other","Self_employed",56,43267,0.129428895000809,0.129264797628247
+"2022","Sexo y orientacion","AFAB Other","Public_sector",56,43267,0.129428895000809,0.129264797628247
+"2022","Sexo y orientacion","AFAB Other","Feminized_sector",56,43267,0.129428895000809,0.129264797628247
+"2022","Sexo y orientacion","AFAB Other","Monthly_hours",56,42899,0.130539173407306,0.13028324978136
+"2022","Sexo y orientacion","AFAB Other","Informal_worker",55,43181,0.127370834394757,0.128099904180189
+"2022","Interseccion GM y orientacion","GM Other","Employed_population",44,69760,0.0630733944954128,0.0735485041375361
+"2022","Interseccion GM y orientacion","GM Other","Employed",30,47518,0.0631339702849446,0.0755232136411166
+"2022","Interseccion GM y orientacion","GM Other","Labor_force",44,69760,0.0630733944954128,0.0735485041375361
+"2022","Interseccion GM y orientacion","GM Other","Self_employed",23,43267,0.0531582961610465,0.069767233972402
+"2022","Interseccion GM y orientacion","GM Other","Public_sector",23,43267,0.0531582961610465,0.069767233972402
+"2022","Interseccion GM y orientacion","GM Other","Feminized_sector",23,43267,0.0531582961610465,0.069767233972402
+"2022","Interseccion GM y orientacion","GM Other","Monthly_hours",22,42899,0.0512832466957272,0.0696464333022257
+"2022","Interseccion GM y orientacion","GM Other","Informal_worker",23,43181,0.0532641671105347,0.069891607613187
+"2024","Total","Total","Employed_population",77685,77685,100,100
+"2024","Total","Total","Employed",55565,55565,100,100
+"2024","Total","Total","Labor_force",77685,77685,100,100
+"2024","Total","Total","Self_employed",50641,50641,100,100
+"2024","Total","Total","Public_sector",50641,50641,100,100
+"2024","Total","Total","Feminized_sector",50641,50641,100,100
+"2024","Total","Total","Monthly_hours",50459,50459,100,100
+"2024","Total","Total","Informal_worker",50591,50591,100,100
+"2024","Genero agregado","GM total","Employed_population",647,77685,0.832850614661775,0.879759013761163
+"2024","Genero agregado","GM total","Employed",457,55565,0.822460181769099,0.827121027149526
+"2024","Genero agregado","GM total","Labor_force",647,77685,0.832850614661775,0.879759013761163
+"2024","Genero agregado","GM total","Self_employed",401,50641,0.791848502201773,0.806792011456515
+"2024","Genero agregado","GM total","Public_sector",401,50641,0.791848502201773,0.806792011456515
+"2024","Genero agregado","GM total","Feminized_sector",401,50641,0.791848502201773,0.806792011456515
+"2024","Genero agregado","GM total","Monthly_hours",399,50459,0.79074099764165,0.805657149316326
+"2024","Genero agregado","GM total","Informal_worker",401,50591,0.792631100393351,0.807464719056106
+"2024","Genero agregado","Cis total","Employed_population",77038,77685,99.1671493853382,99.1202409862388
+"2024","Genero agregado","Cis total","Employed",55108,55565,99.1775398182309,99.1728789728505
+"2024","Genero agregado","Cis total","Labor_force",77038,77685,99.1671493853382,99.1202409862388
+"2024","Genero agregado","Cis total","Self_employed",50240,50641,99.2081514977982,99.1932079885435
+"2024","Genero agregado","Cis total","Public_sector",50240,50641,99.2081514977982,99.1932079885435
+"2024","Genero agregado","Cis total","Feminized_sector",50240,50641,99.2081514977982,99.1932079885435
+"2024","Genero agregado","Cis total","Monthly_hours",50060,50459,99.2092590023584,99.1943428506837
+"2024","Genero agregado","Cis total","Informal_worker",50190,50591,99.2073688996066,99.1925352809439
+"2024","Genero agregado","Genero no clasificable","Employed_population",0,77685,0,0
+"2024","Genero agregado","Genero no clasificable","Employed",0,55565,0,0
+"2024","Genero agregado","Genero no clasificable","Labor_force",0,77685,0,0
+"2024","Genero agregado","Genero no clasificable","Self_employed",0,50641,0,0
+"2024","Genero agregado","Genero no clasificable","Public_sector",0,50641,0,0
+"2024","Genero agregado","Genero no clasificable","Feminized_sector",0,50641,0,0
+"2024","Genero agregado","Genero no clasificable","Monthly_hours",0,50459,0,0
+"2024","Genero agregado","Genero no clasificable","Informal_worker",0,50591,0,0
+"2024","Sexo y genero","AMAB cis","Employed_population",29573,77685,38.0678380639763,42.5484294756957
+"2024","Sexo y genero","AMAB cis","Employed",25226,55565,45.3990821560335,49.3945999237473
+"2024","Sexo y genero","AMAB cis","Labor_force",29573,77685,38.0678380639763,42.5484294756957
+"2024","Sexo y genero","AMAB cis","Self_employed",23333,50641,46.0753144685137,50.084151451221
+"2024","Sexo y genero","AMAB cis","Public_sector",23333,50641,46.0753144685137,50.084151451221
+"2024","Sexo y genero","AMAB cis","Feminized_sector",23333,50641,46.0753144685137,50.084151451221
+"2024","Sexo y genero","AMAB cis","Monthly_hours",23228,50459,46.0334132662161,50.0490268392728
+"2024","Sexo y genero","AMAB cis","Informal_worker",23305,50591,46.0655057223617,50.0769387219876
+"2024","Sexo y genero","AMAB GM","Employed_population",283,77685,0.3642916908026,0.440410313574054
+"2024","Sexo y genero","AMAB GM","Employed",214,55565,0.385134527130388,0.455310432088025
+"2024","Sexo y genero","AMAB GM","Labor_force",283,77685,0.3642916908026,0.440410313574054
+"2024","Sexo y genero","AMAB GM","Self_employed",186,50641,0.367291325210798,0.454410196879253
+"2024","Sexo y genero","AMAB GM","Public_sector",186,50641,0.367291325210798,0.454410196879253
+"2024","Sexo y genero","AMAB GM","Feminized_sector",186,50641,0.367291325210798,0.454410196879253
+"2024","Sexo y genero","AMAB GM","Monthly_hours",186,50459,0.368616104163777,0.455821242664654
+"2024","Sexo y genero","AMAB GM","Informal_worker",186,50591,0.367654325868237,0.454789086591139
+"2024","Sexo y genero","AFAB cis","Employed_population",47465,77685,61.0993113213619,56.5718115105431
+"2024","Sexo y genero","AFAB cis","Employed",29882,55565,53.7784576621974,49.7782790491032
+"2024","Sexo y genero","AFAB cis","Labor_force",47465,77685,61.0993113213619,56.5718115105431
+"2024","Sexo y genero","AFAB cis","Self_employed",26907,50641,53.1328370292846,49.1090565373225
+"2024","Sexo y genero","AFAB cis","Public_sector",26907,50641,53.1328370292846,49.1090565373225
+"2024","Sexo y genero","AFAB cis","Feminized_sector",26907,50641,53.1328370292846,49.1090565373225
+"2024","Sexo y genero","AFAB cis","Monthly_hours",26832,50459,53.1758457361422,49.1453160114109
+"2024","Sexo y genero","AFAB cis","Informal_worker",26885,50591,53.141863177245,49.1155965589563
+"2024","Sexo y genero","AFAB GM","Employed_population",364,77685,0.468558923859175,0.439348700187109
+"2024","Sexo y genero","AFAB GM","Employed",243,55565,0.437325654638711,0.371810595061501
+"2024","Sexo y genero","AFAB GM","Labor_force",364,77685,0.468558923859175,0.439348700187109
+"2024","Sexo y genero","AFAB GM","Self_employed",215,50641,0.424557176990976,0.352381814577262
+"2024","Sexo y genero","AFAB GM","Public_sector",215,50641,0.424557176990976,0.352381814577262
+"2024","Sexo y genero","AFAB GM","Feminized_sector",215,50641,0.424557176990976,0.352381814577262
+"2024","Sexo y genero","AFAB GM","Monthly_hours",213,50459,0.422124893477873,0.349835906651672
+"2024","Sexo y genero","AFAB GM","Informal_worker",215,50591,0.424976774525113,0.352675632464968
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed_population",2391,77685,3.07781424985518,3.81093992595247
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Employed",1791,55565,3.22325204715198,4.02369434788378
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Labor_force",2391,77685,3.07781424985518,3.81093992595247
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Self_employed",1537,50641,3.03509014434944,3.84459064310732
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Public_sector",1537,50641,3.03509014434944,3.84459064310732
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Feminized_sector",1537,50641,3.03509014434944,3.84459064310732
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Monthly_hours",1533,50459,3.03811014883371,3.84804170442506
+"2024","Orientacion agregada","Diversidad sexual total (LG, bisexual, Other)","Informal_worker",1537,50591,3.03808977881441,3.84779628385017
+"2024","Orientacion agregada","Orientacion no clasificable","Employed_population",0,77685,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Employed",0,55565,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Labor_force",0,77685,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Self_employed",0,50641,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Public_sector",0,50641,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Feminized_sector",0,50641,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Monthly_hours",0,50459,0,0
+"2024","Orientacion agregada","Orientacion no clasificable","Informal_worker",0,50591,0,0
+"2024","Orientacion sexual","Heterosexual","Employed_population",75294,77685,96.9221857501448,96.1890600740475
+"2024","Orientacion sexual","Heterosexual","Employed",53774,55565,96.776747952848,95.9763056521162
+"2024","Orientacion sexual","Heterosexual","Labor_force",75294,77685,96.9221857501448,96.1890600740475
+"2024","Orientacion sexual","Heterosexual","Self_employed",49104,50641,96.9649098556506,96.1554093568927
+"2024","Orientacion sexual","Heterosexual","Public_sector",49104,50641,96.9649098556506,96.1554093568927
+"2024","Orientacion sexual","Heterosexual","Feminized_sector",49104,50641,96.9649098556506,96.1554093568927
+"2024","Orientacion sexual","Heterosexual","Monthly_hours",48926,50459,96.9618898511663,96.1519582955749
+"2024","Orientacion sexual","Heterosexual","Informal_worker",49054,50591,96.9619102211856,96.1522037161498
+"2024","Sexo y orientacion","AMAB Heterosexual","Employed_population",28903,77685,37.2053807041256,41.0931963852064
+"2024","Sexo y orientacion","AMAB Heterosexual","Employed",24697,55565,44.4470440025196,47.7074655856384
+"2024","Sexo y orientacion","AMAB Heterosexual","Labor_force",28903,77685,37.2053807041256,41.0931963852064
+"2024","Sexo y orientacion","AMAB Heterosexual","Self_employed",22863,50641,45.1472127327659,48.4302679362344
+"2024","Sexo y orientacion","AMAB Heterosexual","Public_sector",22863,50641,45.1472127327659,48.4302679362344
+"2024","Sexo y orientacion","AMAB Heterosexual","Feminized_sector",22863,50641,45.1472127327659,48.4302679362344
+"2024","Sexo y orientacion","AMAB Heterosexual","Monthly_hours",22759,50459,45.1039457777602,48.3915403317119
+"2024","Sexo y orientacion","AMAB Heterosexual","Informal_worker",22835,50591,45.1364867268882,48.4216761898645
+"2024","Sexo y orientacion","AFAB Heterosexual","Employed_population",46391,77685,59.7168050460192,55.0958636888411
+"2024","Sexo y orientacion","AFAB Heterosexual","Employed",29077,55565,52.3297039503284,48.2688400664778
+"2024","Sexo y orientacion","AFAB Heterosexual","Labor_force",46391,77685,59.7168050460192,55.0958636888411
+"2024","Sexo y orientacion","AFAB Heterosexual","Self_employed",26241,50641,51.8176971228846,47.7251414206583
+"2024","Sexo y orientacion","AFAB Heterosexual","Public_sector",26241,50641,51.8176971228846,47.7251414206583
+"2024","Sexo y orientacion","AFAB Heterosexual","Feminized_sector",26241,50641,51.8176971228846,47.7251414206583
+"2024","Sexo y orientacion","AFAB Heterosexual","Monthly_hours",26167,50459,51.8579440734061,47.7604179638631
+"2024","Sexo y orientacion","AFAB Heterosexual","Informal_worker",26219,50591,51.8254234942974,47.7305275262853
+"2024","Interseccion GM y orientacion","GM Heterosexual","Employed_population",425,77685,0.547081161099311,0.555250341706809
+"2024","Interseccion GM y orientacion","GM Heterosexual","Employed",299,55565,0.538108521551336,0.520044687292235
+"2024","Interseccion GM y orientacion","GM Heterosexual","Labor_force",425,77685,0.547081161099311,0.555250341706809
+"2024","Interseccion GM y orientacion","GM Heterosexual","Self_employed",266,50641,0.525266088742323,0.510924982209016
+"2024","Interseccion GM y orientacion","GM Heterosexual","Public_sector",266,50641,0.525266088742323,0.510924982209016
+"2024","Interseccion GM y orientacion","GM Heterosexual","Feminized_sector",266,50641,0.525266088742323,0.510924982209016
+"2024","Interseccion GM y orientacion","GM Heterosexual","Monthly_hours",265,50459,0.5251788580828,0.509369509865717
+"2024","Interseccion GM y orientacion","GM Heterosexual","Informal_worker",266,50591,0.525785218714791,0.511350994258555
+"2024","Orientacion sexual","LG","Employed_population",1107,77685,1.42498551843985,1.86853245219422
+"2024","Orientacion sexual","LG","Employed",912,55565,1.64132097543418,2.14864161344792
+"2024","Orientacion sexual","LG","Labor_force",1107,77685,1.42498551843985,1.86853245219422
+"2024","Orientacion sexual","LG","Self_employed",811,50641,1.60146916530084,2.11744226954516
+"2024","Orientacion sexual","LG","Public_sector",811,50641,1.60146916530084,2.11744226954516
+"2024","Orientacion sexual","LG","Feminized_sector",811,50641,1.60146916530084,2.11744226954516
+"2024","Orientacion sexual","LG","Monthly_hours",811,50459,1.60724548643453,2.12401740366581
+"2024","Orientacion sexual","LG","Informal_worker",811,50591,1.60305192623194,2.11920780451104
+"2024","Sexo y orientacion","AMAB LG","Employed_population",633,77685,0.814829117590268,1.30912854811099
+"2024","Sexo y orientacion","AMAB LG","Employed",519,55565,0.934041212993791,1.5397580010174
+"2024","Sexo y orientacion","AMAB LG","Labor_force",633,77685,0.814829117590268,1.30912854811099
+"2024","Sexo y orientacion","AMAB LG","Self_employed",461,50641,0.910329574850418,1.52446675750287
+"2024","Sexo y orientacion","AMAB LG","Public_sector",461,50641,0.910329574850418,1.52446675750287
+"2024","Sexo y orientacion","AMAB LG","Feminized_sector",461,50641,0.910329574850418,1.52446675750287
+"2024","Sexo y orientacion","AMAB LG","Monthly_hours",461,50459,0.913613032362908,1.52920056939338
+"2024","Sexo y orientacion","AMAB LG","Informal_worker",461,50591,0.911229270028266,1.52573786623787
+"2024","Sexo y orientacion","AFAB LG","Employed_population",474,77685,0.610156400849585,0.55940390408323
+"2024","Sexo y orientacion","AFAB LG","Employed",393,55565,0.707279762440385,0.608883612430517
+"2024","Sexo y orientacion","AFAB LG","Labor_force",474,77685,0.610156400849585,0.55940390408323
+"2024","Sexo y orientacion","AFAB LG","Self_employed",350,50641,0.691139590450426,0.59297551204229
+"2024","Sexo y orientacion","AFAB LG","Public_sector",350,50641,0.691139590450426,0.59297551204229
+"2024","Sexo y orientacion","AFAB LG","Feminized_sector",350,50641,0.691139590450426,0.59297551204229
+"2024","Sexo y orientacion","AFAB LG","Monthly_hours",350,50459,0.693632454071623,0.594816834272424
+"2024","Sexo y orientacion","AFAB LG","Informal_worker",350,50591,0.691822656203673,0.593469938273163
+"2024","Interseccion GM y orientacion","GM LG","Employed_population",87,77685,0.111990731801506,0.107713948272888
+"2024","Interseccion GM y orientacion","GM LG","Employed",71,55565,0.127778277692792,0.114939188661667
+"2024","Interseccion GM y orientacion","GM LG","Labor_force",87,77685,0.111990731801506,0.107713948272888
+"2024","Interseccion GM y orientacion","GM LG","Self_employed",63,50641,0.124405126281077,0.111043244983859
+"2024","Interseccion GM y orientacion","GM LG","Public_sector",63,50641,0.124405126281077,0.111043244983859
+"2024","Interseccion GM y orientacion","GM LG","Feminized_sector",63,50641,0.124405126281077,0.111043244983859
+"2024","Interseccion GM y orientacion","GM LG","Monthly_hours",63,50459,0.124853841732892,0.111388059215379
+"2024","Interseccion GM y orientacion","GM LG","Informal_worker",63,50591,0.124528078116661,0.111135833449936
+"2024","Orientacion sexual","Bisexual","Employed_population",1124,77685,1.44686876488383,1.70097004923232
+"2024","Orientacion sexual","Bisexual","Employed",763,55565,1.37316656168451,1.63134524364272
+"2024","Orientacion sexual","Bisexual","Labor_force",1124,77685,1.44686876488383,1.70097004923232
+"2024","Orientacion sexual","Bisexual","Self_employed",628,50641,1.24010189372248,1.50319015363083
+"2024","Orientacion sexual","Bisexual","Public_sector",628,50641,1.24010189372248,1.50319015363083
+"2024","Orientacion sexual","Bisexual","Feminized_sector",628,50641,1.24010189372248,1.50319015363083
+"2024","Orientacion sexual","Bisexual","Monthly_hours",624,50459,1.23664757525912,1.4993706402227
+"2024","Orientacion sexual","Bisexual","Informal_worker",628,50591,1.24132750884545,1.50444352181695
+"2024","Sexo y orientacion","AMAB Bisexual","Employed_population",273,77685,0.351419192894381,0.489297610042863
+"2024","Sexo y orientacion","AMAB Bisexual","Employed",188,55565,0.338342481778098,0.497935610947476
+"2024","Sexo y orientacion","AMAB Bisexual","Labor_force",273,77685,0.351419192894381,0.489297610042863
+"2024","Sexo y orientacion","AMAB Bisexual","Self_employed",164,50641,0.323848265239628,0.484338777011642
+"2024","Sexo y orientacion","AMAB Bisexual","Public_sector",164,50641,0.323848265239628,0.484338777011642
+"2024","Sexo y orientacion","AMAB Bisexual","Feminized_sector",164,50641,0.323848265239628,0.484338777011642
+"2024","Sexo y orientacion","AMAB Bisexual","Monthly_hours",163,50459,0.323034542896213,0.484310070331195
+"2024","Sexo y orientacion","AMAB Bisexual","Informal_worker",164,50591,0.324168330335435,0.484742621337621
+"2024","Sexo y orientacion","AFAB Bisexual","Employed_population",851,77685,1.09544957198944,1.21167243918946
+"2024","Sexo y orientacion","AFAB Bisexual","Employed",575,55565,1.03482407990642,1.13340963269525
+"2024","Sexo y orientacion","AFAB Bisexual","Labor_force",851,77685,1.09544957198944,1.21167243918946
+"2024","Sexo y orientacion","AFAB Bisexual","Self_employed",464,50641,0.91625362848285,1.01885137661919
+"2024","Sexo y orientacion","AFAB Bisexual","Public_sector",464,50641,0.91625362848285,1.01885137661919
+"2024","Sexo y orientacion","AFAB Bisexual","Feminized_sector",464,50641,0.91625362848285,1.01885137661919
+"2024","Sexo y orientacion","AFAB Bisexual","Monthly_hours",461,50459,0.913613032362908,1.0150605698915
+"2024","Sexo y orientacion","AFAB Bisexual","Informal_worker",464,50591,0.917159178510012,1.01970090047933
+"2024","Interseccion GM y orientacion","GM Bisexual","Employed_population",91,77685,0.117139730964794,0.145600276019481
+"2024","Interseccion GM y orientacion","GM Bisexual","Employed",53,55565,0.0953837847565914,0.119350500806465
+"2024","Interseccion GM y orientacion","GM Bisexual","Labor_force",91,77685,0.117139730964794,0.145600276019481
+"2024","Interseccion GM y orientacion","GM Bisexual","Self_employed",41,50641,0.080962066309907,0.112743081379381
+"2024","Interseccion GM y orientacion","GM Bisexual","Public_sector",41,50641,0.080962066309907,0.112743081379381
+"2024","Interseccion GM y orientacion","GM Bisexual","Feminized_sector",41,50641,0.080962066309907,0.112743081379381
+"2024","Interseccion GM y orientacion","GM Bisexual","Monthly_hours",40,50459,0.0792722804653283,0.112595050569106
+"2024","Interseccion GM y orientacion","GM Bisexual","Informal_worker",41,50591,0.0810420825838588,0.112837087178358
+"2024","Orientacion sexual","Other","Employed_population",160,77685,0.205959966531505,0.241437424525923
+"2024","Orientacion sexual","Other","Employed",116,55565,0.208764510033294,0.243707490793136
+"2024","Orientacion sexual","Other","Labor_force",160,77685,0.205959966531505,0.241437424525923
+"2024","Orientacion sexual","Other","Self_employed",98,50641,0.193519085326119,0.223958219931327
+"2024","Orientacion sexual","Other","Public_sector",98,50641,0.193519085326119,0.223958219931327
+"2024","Orientacion sexual","Other","Feminized_sector",98,50641,0.193519085326119,0.223958219931327
+"2024","Orientacion sexual","Other","Monthly_hours",98,50459,0.194217087140054,0.224653660536556
+"2024","Orientacion sexual","Other","Informal_worker",98,50591,0.193710343737028,0.224144957522179
+"2024","Sexo y orientacion","AMAB Other","Employed_population",47,77685,0.0605007401686297,0.0972172459094709
+"2024","Sexo y orientacion","AMAB Other","Employed",36,55565,0.0647889858724017,0.104751158232016
+"2024","Sexo y orientacion","AMAB Other","Labor_force",47,77685,0.0605007401686297,0.0972172459094709
+"2024","Sexo y orientacion","AMAB Other","Self_employed",31,50641,0.0612152208684663,0.0994881773513799
+"2024","Sexo y orientacion","AMAB Other","Public_sector",31,50641,0.0612152208684663,0.0994881773513799
+"2024","Sexo y orientacion","AMAB Other","Feminized_sector",31,50641,0.0612152208684663,0.0994881773513799
+"2024","Sexo y orientacion","AMAB Other","Monthly_hours",31,50459,0.0614360173606294,0.0997971105010164
+"2024","Sexo y orientacion","AMAB Other","Informal_worker",31,50591,0.0612757209780396,0.0995711311387543
+"2024","Sexo y orientacion","AFAB Other","Employed_population",113,77685,0.145459226362876,0.144220178616452
+"2024","Sexo y orientacion","AFAB Other","Employed",80,55565,0.143975524160893,0.13895633256112
+"2024","Sexo y orientacion","AFAB Other","Labor_force",113,77685,0.145459226362876,0.144220178616452
+"2024","Sexo y orientacion","AFAB Other","Self_employed",67,50641,0.132303864457653,0.124470042579947
+"2024","Sexo y orientacion","AFAB Other","Public_sector",67,50641,0.132303864457653,0.124470042579947
+"2024","Sexo y orientacion","AFAB Other","Feminized_sector",67,50641,0.132303864457653,0.124470042579947
+"2024","Sexo y orientacion","AFAB Other","Monthly_hours",67,50459,0.132781069779425,0.124856550035539
+"2024","Sexo y orientacion","AFAB Other","Informal_worker",67,50591,0.132434622758989,0.124573826383425
+"2024","Interseccion GM y orientacion","GM Other","Employed_population",44,77685,0.056638990796164,0.0711944477619863
+"2024","Interseccion GM y orientacion","GM Other","Employed",34,55565,0.0611895977683794,0.0727866503891583
+"2024","Interseccion GM y orientacion","GM Other","Labor_force",44,77685,0.056638990796164,0.0711944477619863
+"2024","Interseccion GM y orientacion","GM Other","Self_employed",31,50641,0.0612152208684663,0.0720807028842595
+"2024","Interseccion GM y orientacion","GM Other","Public_sector",31,50641,0.0612152208684663,0.0720807028842595
+"2024","Interseccion GM y orientacion","GM Other","Feminized_sector",31,50641,0.0612152208684663,0.0720807028842595
+"2024","Interseccion GM y orientacion","GM Other","Monthly_hours",31,50459,0.0614360173606294,0.0723045296661232
+"2024","Interseccion GM y orientacion","GM Other","Informal_worker",31,50591,0.0612757209780396,0.0721408041692568

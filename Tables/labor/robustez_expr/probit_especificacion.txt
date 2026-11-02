@@ -1,0 +1,7 @@
+Formula: AFAB * (GM + LG + bisexual + Other) + edad + edad2 + esc + factor(area) + factor(ecivil) + men11c + disc_wg + extranjero + pueblos_indigenas + factor(region) + factor(year) + ing_nl
+Non-labor household income per capita is ypchtotcor minus ypchtrabcor, in levels. Both sources are already per capita; missing or invalid sources are not imputed as zero. Valid negative differences are retained.
+Regla de boleta: literal
+Estado civil: categorias separadas mediante factor(ecivil).
+Horas: log(hrs * 4.33), ocupados con horas positivas y finitas.
+Covarianza Taylor del diseno; metodo delta para contrastes.
+Muestras de referencia: mascaras historicas verificadas del script adjunto.

@@ -1,0 +1,42 @@
+# Bases originales y procesadas
+Data/
+Intermediates/
+Inter_Tables/
+Ejercicios/
+# Archivos de sesión y modelos guardados
+.RData
+.Rhistory
+.Ruserdata
+*.rds
+*.RData
+
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# Datos y archivos temporales de MATLAB
+matlab/Datos/
+Matlab/Datos/
+*.asv
+*.mat
+
+# Registros locales de ejecucion
+logs/
+
+# Original and processed datasets
+/Data/
+/Intermediates/
+/Inter_Tables/
+/Matlab/Datos/
+/matlab/Datos/
+
+# Saved models and sessions
+*.rds
+*.RData
+.Rhistory
+.Ruserdata
+
+# MATLAB temporary files
+*.asv

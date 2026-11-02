@@ -1,0 +1,23 @@
+Ejercicio de sensibilidad: la variable dependiente cambia con el umbral.
+No demuestra que 50% sea el umbral verdadero u optimo.
+50% corresponde a al menos la mitad del empleo de la ocupacion femenino.
+40% describe presencia femenina elevada; no necesariamente mayoria.
+60% y 70% exigen concentracion femenina mas intensa.
+El umbral inclusivo >=50% conserva la definicion de la tabla principal.
+La clasificacion se hereda del referente nacional conjunto 2022-2024, con expr.
+No se calculan proporciones de ocupacion dentro de la muestra OSIG.
+Regresiones MPL con expr_osig; mismas personas y controles en todos los umbrales.
+Formula: SF_sensibilidad ~ AFAB * (GM + LG + bisexual + Other) + edad +      edad2 + esc + factor(area) + factor(ecivil) + men11c + disc_wg +      extranjero + pueblos_indigenas + factor(region) + factor(year) +      ing_nl
+N original con controles: 93908
+N comun: 93897
+Excluidos por no disponer de clasificacion: 11
+Los graficos muestran los contrastes de la tabla principal, no solo beta_AFAB.
+Para ver parametros individuales utilice coeficientes_completos_por_umbral.csv.
+Escala de contrastes: probabilidad; multiplicar por 100 para puntos porcentuales.
+IC puntuales al 95% con t y grados de libertad del diseno, como sf_contrastes.
+No se corrige por comparaciones multiples ni se propaga incertidumbre de clasificacion.
+La comparacion pareada usa regresiones de Y_umbral - Y_50 sobre el mismo X.
+Los IC de diferencias incorporan la dependencia entre estimaciones; no asumir independencia.
+Los coeficientes completos usan los p-values de summary(svyglm); los contrastes usan gl del diseno.
+Ningun umbral se selecciona en funcion de significancia, magnitud o R2.
+Las lineas unen los cuatro umbrales evaluados; no representan una curva estimada entre ellos.

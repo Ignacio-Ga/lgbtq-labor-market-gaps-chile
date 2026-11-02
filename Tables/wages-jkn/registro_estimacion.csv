@@ -1,0 +1,9 @@
+modelo,segundos,recuperado
+Probit de seleccion por empleo,16896.04132914543,FALSE
+"Columna 1: salario horario, 18-65, OLS",6769.782128095627,FALSE
+"Columna 2: salario mensual, 18-65, OLS",6699.8206260204315,FALSE
+"Columna 3: salario horario, 25-65, OLS",6588.893611907959,FALSE
+"Columna 4: salario mensual, 25-65, OLS",6749.64413189888,FALSE
+"Columna 5: salario horario, asalariados, OLS",5130.531827926636,FALSE
+"Columna 6: salario mensual, asalariados, OLS",5086.307808160782,FALSE
+"Columna 7: salario horario, Heckman",7533.465862035751,FALSE

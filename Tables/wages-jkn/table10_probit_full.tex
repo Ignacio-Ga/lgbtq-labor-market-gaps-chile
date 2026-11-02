@@ -1,0 +1,64 @@
+% Requiere longtable y pdflscape; incluir directamente, fuera de table.
+\begin{landscape}
+\begingroup\scriptsize
+\begin{longtable}{l c c c c c c}
+\caption{Complete employment selection probit}\label{tab:wages_trans_nb_selection} \\
+\hline
+Coefficient & Estimate & SE & t & p-value & CI lower & CI upper \\
+\hline
+\endfirsthead
+\hline
+Coefficient & Estimate & SE & t & p-value & CI lower & CI upper \\
+\hline
+\endhead
+\hline\endfoot
+(Intercept) & -3.98282 & 0.0672733 & -59.2036 &       0 & -4.11468 & -3.85096 \\
+AFAB & -0.663293 & 0.0116327 & -57.0196 &       0 & -0.686094 & -0.640492 \\
+Trans\_explicit & -0.202245 & 0.202769 & -0.997416 & 0.318573 & -0.599685 & 0.195195 \\
+NB\_explicit & -0.201573 &  0.2248 & -0.896677 & 0.369901 & -0.642197 & 0.23905 \\
+LG & -0.22179 & 0.0584607 & -3.79384 & 0.000148717 & -0.336377 & -0.107203 \\
+bisexual & -0.432963 & 0.091232 & -4.74573 & 2.09001e-06 & -0.611784 & -0.254142 \\
+Other & -0.45255 & 0.216953 & -2.08594 & 0.0369953 & -0.877792 & -0.027308 \\
+esc & 0.0738212 & 0.00168553 & 43.7971 &       0 & 0.0705175 & 0.077125 \\
+edad & 0.191216 & 0.00288673 & 66.2397 &       0 & 0.185558 & 0.196874 \\
+edad2 & -0.00214003 & 3.35191e-05 & -63.8452 &       0 & -0.00220573 & -0.00207433 \\
+ing\_nl & -4.30211e-07 & 3.06372e-08 & -14.0421 & 1.31613e-44 & -4.90262e-07 & -3.7016e-07 \\
+men11c & -0.0220993 & 0.00738654 & -2.99184 & 0.00277597 & -0.0365774 & -0.00762121 \\
+pueblos\_indigenas & 0.0134041 & 0.0163769 & 0.818476 & 0.413094 & -0.0186957 & 0.0455038 \\
+disc\_wg & -0.0107994 & 0.00671518 & -1.6082 & 0.107805 & -0.0239616 & 0.00236285 \\
+extranjero & 0.298198 & 0.0243689 & 12.2368 & 2.52684e-34 & 0.250433 & 0.345962 \\
+factor(area)2 & -0.076734 & 0.0140511 & -5.46107 & 4.78165e-08 & -0.104275 & -0.0491929 \\
+factor(ecivil)2 & 0.250966 & 0.0143581 &  17.479 & 5.68987e-68 & 0.222823 & 0.279109 \\
+factor(ecivil)3 & 0.220112 & 0.0765419 & 2.87571 & 0.00403494 & 0.0700848 & 0.37014 \\
+factor(ecivil)4 & 0.342284 & 0.158258 & 2.16283 & 0.0305648 & 0.0320883 & 0.652479 \\
+factor(ecivil)5 & 0.202637 & 0.0246451 & 8.22217 & 2.10311e-16 & 0.15433 & 0.250943 \\
+factor(ecivil)6 & 0.352023 & 0.0283302 & 12.4257 & 2.45967e-35 & 0.296494 & 0.407552 \\
+factor(ecivil)7 & 0.166129 & 0.0372105 & 4.46457 & 8.06109e-06 & 0.0931937 & 0.239064 \\
+factor(ecivil)8 & 0.0575327 & 0.0144775 & 3.97394 & 7.09096e-05 & 0.0291558 & 0.0859095 \\
+factor(region)2 & -0.0982468 & 0.0291553 & -3.36977 & 0.000753534 & -0.155393 & -0.0411005 \\
+factor(region)3 & -0.0929742 & 0.0309346 & -3.00551 & 0.00265419 & -0.153608 & -0.0323404 \\
+factor(region)4 & -0.104591 & 0.0324136 & -3.22677 & 0.00125372 & -0.168124 & -0.0410584 \\
+factor(region)5 & -0.0610974 & 0.0259924 & -2.35058 & 0.0187524 & -0.112044 & -0.0101505 \\
+factor(region)6 & -0.00877783 & 0.0269805 & -0.325339 & 0.744927 & -0.0616615 & 0.0441058 \\
+factor(region)7 & -0.041162 & 0.0277316 & -1.4843 & 0.137743 & -0.0955177 & 0.0131938 \\
+factor(region)8 & -0.152399 & 0.0255058 & -5.97507 & 2.33379e-09 & -0.202392 & -0.102406 \\
+factor(region)9 & -0.133908 & 0.0276137 & -4.84931 & 1.247e-06 & -0.188032 & -0.0797828 \\
+factor(region)10 & 0.0512162 & 0.0291314 & 1.75811 & 0.0787425 & -0.00588336 & 0.108316 \\
+factor(region)11 & 0.327136 & 0.0415191 & 7.87917 & 3.44094e-15 & 0.245756 & 0.408516 \\
+factor(region)12 & 0.195707 & 0.0347075 & 5.63875 & 1.73299e-08 & 0.127678 & 0.263736 \\
+factor(region)13 & 0.0841713 & 0.0235479 & 3.57447 & 0.000351649 & 0.0380159 & 0.130327 \\
+factor(region)14 & 0.0213226 & 0.0295511 & 0.72155 & 0.470579 & -0.0365995 & 0.0792446 \\
+factor(region)15 & -0.0678933 & 0.0326382 & -2.08018 & 0.0375204 & -0.131866 & -0.00392014 \\
+factor(region)16 & -0.146164 & 0.0299743 & -4.87629 & 1.08818e-06 & -0.204915 & -0.087412 \\
+factor(year)2024 & 0.0367632 & 0.0107819 & 3.40972 & 0.000651415 & 0.01563 & 0.0578964 \\
+AFAB:Trans\_explicit & 0.0447649 & 0.282923 & 0.158223 & 0.874283 & -0.509784 & 0.599314 \\
+AFAB:NB\_explicit & 0.219016 & 0.271083 & 0.80793 & 0.419139 & -0.312324 & 0.750356 \\
+AFAB:LG & 0.614293 & 0.107488 &   5.715 & 1.11056e-08 & 0.40361 & 0.824976 \\
+AFAB:bisexual & 0.672697 & 0.100129 & 6.71829 & 1.88155e-11 & 0.476437 & 0.868957 \\
+AFAB:Other & 0.580714 & 0.256609 & 2.26303 & 0.0236432 & 0.0777425 & 1.08368 \\
+\hline
+Num. obs. & 146,460 & & & & & \\
+\end{longtable}
+\par\noindent\textit{Note:} Employment equals one for employed respondents and zero for unemployed or inactive respondents aged 18--65. Entries are coefficients of the probit index, not marginal effects. Standard errors use JKn; intervals are 95 percent confidence intervals. All controls, interactions and fixed effects are reported. Non-labor household income per capita enters in Chilean pesos, in levels, as ypchtotcor minus ypchtrabcor. The household child-count control is men11c. Non-binary and transgender categories are mutually exclusive; residual gender minorities and unclassifiable SOGI responses are excluded. Sampling weights are expr\_osig. Scientific notation preserves small income coefficients.
+\endgroup
+\end{landscape}

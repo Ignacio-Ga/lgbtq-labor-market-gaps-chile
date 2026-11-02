@@ -1,0 +1,42 @@
+\begin{table}[htpb]
+\caption{Average Marginal Effects on Employment Probability}
+\label{tab:ame_employment_expr}
+\centering
+\begin{tabular}{l c}
+\hline
+ & \begin{tabular}[c]{@{}c@{}}Employment\\ probability (pp)\end{tabular} \\
+\hline
+\multicolumn{2}{l}{\textit{Panel A: Assigned Sex and Gender Minority Status}} \\
+AFAB Cis vs AMAB Cis & $-21.376^{***}$ \\
+ & $(0.287)$ \\
+AMAB GM vs AMAB Cis & $-4.683^{*}$ \\
+ & $(2.045)$ \\
+AFAB GM vs AMAB Cis & $-23.840^{***}$ \\
+ & $(2.075)$ \\
+AFAB GM vs AFAB Cis & $-2.464$ \\
+ & $(2.076)$ \\
+AFAB GM vs AMAB GM & $-19.157^{***}$ \\
+ & $(2.915)$ \\
+\hline
+\multicolumn{2}{l}{\textit{Panel B: Sexual Orientation Within Assigned Sex}} \\
+AMAB LG vs AMAB Hetero & $-4.979^{***}$ \\
+ & $(1.458)$ \\
+AFAB LG vs AFAB Hetero & $13.389^{***}$ \\
+ & $(2.424)$ \\
+AMAB Bisexual vs AMAB Hetero & $-11.930^{***}$ \\
+ & $(2.313)$ \\
+AFAB Bisexual vs AFAB Hetero & $7.557^{***}$ \\
+ & $(1.348)$ \\
+AMAB Other vs AMAB Hetero & $-15.934^{*}$ \\
+ & $(7.151)$ \\
+AFAB Other vs AFAB Hetero & $3.402$ \\
+ & $(4.062)$ \\
+\hline
+Num. obs. & 147,445 \\
+\hline
+\end{tabular}
+\par\smallskip
+\begin{minipage}{\textwidth}\footnotesize
+\footnotesize\textit{Note:} Weighting sensitivity exercise: regressions and average contrasts use the full-survey expansion factor (expr), retaining the original SOGI eligibility rules, controls, and outcome definitions. This reweighting does not turn the SOGI subsample into the full CASEN sample. The table reports survey-weighted average discrete changes in the predicted probability of employment, expressed in percentage points. Panel A standardizes over the observed distribution of sexual orientation, whereas Panel B standardizes over the observed distribution of gender-minority status. All remaining covariates are held at their observed values. Delta-method standard errors based on the complex-survey variance-covariance matrix are reported in parentheses. $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\dagger}p<0.10$.
+\end{minipage}
+\end{table}

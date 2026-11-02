@@ -1,0 +1,48 @@
+\begin{table}[htpb!]
+\caption{Employment Categories and Informality by Gender and Sexual Diversity}
+\label{tab:employment_informality_disaggregated_MPL_expr}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c}
+\hline
+ & Formal dependent & Informal dependent & Formal independent & Informal independent & Unpaid family worker \\
+\hline
+\multicolumn{6}{l}{\textit{Panel A: Assigned Sex and Gender Minority Status}} \\
+AFAB cis vs AMAB cis & $-0.025^{***}$ & $0.037^{***}$ & $-0.028^{***}$ & $0.014^{***}$ & $0.003^{***}$ \\
+ & $(0.004)$ & $(0.003)$ & $(0.003)$ & $(0.003)$ & $(0.000)$ \\
+AMAB GM vs AMAB cis & $-0.026$ & $0.029$ & $-0.001$ & $-0.004$ & $0.002$ \\
+ & $(0.037)$ & $(0.025)$ & $(0.024)$ & $(0.022)$ & $(0.003)$ \\
+AFAB GM vs AMAB cis & $-0.025$ & $0.042^{*}$ & $-0.025$ & $0.010$ & $-0.002$ \\
+ & $(0.028)$ & $(0.020)$ & $(0.019)$ & $(0.020)$ & $(0.001)$ \\
+AFAB GM vs AFAB cis & $0.001$ & $0.005$ & $0.003$ & $-0.004$ & $-0.005^{***}$ \\
+ & $(0.028)$ & $(0.020)$ & $(0.019)$ & $(0.020)$ & $(0.001)$ \\
+AFAB GM vs AMAB GM & $0.001$ & $0.013$ & $-0.024$ & $0.014$ & $-0.004$ \\
+ & $(0.046)$ & $(0.032)$ & $(0.030)$ & $(0.030)$ & $(0.004)$ \\
+\hline
+R$^2$ & $0.058$ & $0.029$ & $0.028$ & $0.075$ & $0.003$ \\
+Num. obs. & $93,772$ & $93,772$ & $93,772$ & $93,772$ & $93,772$ \\
+\hline
+\multicolumn{6}{l}{\textit{Panel B: Sexual Orientation Within Assigned Sex}} \\
+AMAB LG vs AMAB heterosexual & $-0.034$ & $0.042^{*}$ & $0.002$ & $-0.012$ & $0.001$ \\
+ & $(0.026)$ & $(0.021)$ & $(0.015)$ & $(0.011)$ & $(0.001)$ \\
+AFAB LG vs AFAB heterosexual & $0.012$ & $-0.015$ & $0.015$ & $-0.009$ & $-0.003^{***}$ \\
+ & $(0.028)$ & $(0.016)$ & $(0.017)$ & $(0.019)$ & $(0.000)$ \\
+AMAB bisexual vs AMAB heterosexual & $-0.157^{*}$ & $0.099$ & $0.025$ & $0.033$ & $-0.001^{\dagger}$ \\
+ & $(0.070)$ & $(0.084)$ & $(0.029)$ & $(0.022)$ & $(0.001)$ \\
+AFAB bisexual vs AFAB heterosexual & $-0.067^{**}$ & $0.021$ & $0.029^{*}$ & $0.017$ & $-0.000$ \\
+ & $(0.022)$ & $(0.017)$ & $(0.014)$ & $(0.014)$ & $(0.002)$ \\
+AMAB other vs AMAB heterosexual & $-0.270^{**}$ & $-0.016$ & $-0.019$ & $0.265^{*}$ & $0.040$ \\
+ & $(0.097)$ & $(0.062)$ & $(0.042)$ & $(0.122)$ & $(0.039)$ \\
+AFAB other vs AFAB heterosexual & $-0.123^{*}$ & $0.015$ & $0.022$ & $0.074^{\dagger}$ & $0.012$ \\
+ & $(0.055)$ & $(0.039)$ & $(0.033)$ & $(0.039)$ & $(0.015)$ \\
+\hline
+R$^2$ & $0.058$ & $0.029$ & $0.028$ & $0.075$ & $0.003$ \\
+Num. obs. & $93,772$ & $93,772$ & $93,772$ & $93,772$ & $93,772$ \\
+\hline
+\end{tabular}%
+}
+\par\vspace{1ex}
+\begin{minipage}{\textwidth}\footnotesize\raggedright
+\textit{Note:} Weighting sensitivity exercise: regressions and average contrasts use the full-survey expansion factor (expr), retaining the original SOGI eligibility rules, controls, and outcome definitions. This reweighting does not turn the SOGI subsample into the full CASEN sample. All columns use the same sample of employed respondents with complete controls and a classifiable employment category. Dependent workers include occupational categories 3--8; independent workers include categories 1--2; unpaid family workers are category 9. Informality uses the reconstructed measure from the main labor-outcome analysis. Each column is a separate linear probability model for membership in that category versus all other categories. Entries are survey-weighted average contrasts in probability units, without multiplication by 100, using the main specification and contrast scenarios. Standard errors use Taylor survey covariance and the delta method. Linear-model predictions are not constrained to the unit interval. These estimates do not identify causal effects or workers' motivations. $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\dagger}p<0.10$. Panels A and B report contrasts from the same fitted model within each column; sample sizes and fit statistics are repeated for presentation. R-squared is one minus the ratio of the survey-weighted residual sum of squares to the survey-weighted total sum of squares, on the estimation scale.
+\end{minipage}
+\end{table}

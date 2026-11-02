@@ -1,0 +1,54 @@
+Employment selection probit; JKn covariance
+Employed ~ AFAB * (Trans_explicit + NB_explicit + LG + bisexual + 
+    Other) + esc + edad + edad2 + ing_nl + men11c + pueblos_indigenas + 
+    disc_wg + extranjero + factor(area) + factor(ecivil) + factor(region) + 
+    factor(year)
+<environment: 0x000001836f862188>
+N: 146460 | df: 23020 | JKn replicas: 24574 
+                       Estimate  Std. Error  t value  Pr(>|t|)    
+(Intercept)         -3.9828e+00  6.7273e-02 -59.2036 < 2.2e-16 ***
+AFAB                -6.6329e-01  1.1633e-02 -57.0196 < 2.2e-16 ***
+Trans_explicit      -2.0224e-01  2.0277e-01  -0.9974 0.3185729    
+NB_explicit         -2.0157e-01  2.2480e-01  -0.8967 0.3699007    
+LG                  -2.2179e-01  5.8461e-02  -3.7938 0.0001487 ***
+bisexual            -4.3296e-01  9.1232e-02  -4.7457 2.090e-06 ***
+Other               -4.5255e-01  2.1695e-01  -2.0859 0.0369953 *  
+esc                  7.3821e-02  1.6855e-03  43.7971 < 2.2e-16 ***
+edad                 1.9122e-01  2.8867e-03  66.2397 < 2.2e-16 ***
+edad2               -2.1400e-03  3.3519e-05 -63.8452 < 2.2e-16 ***
+ing_nl              -4.3021e-07  3.0637e-08 -14.0421 < 2.2e-16 ***
+men11c              -2.2099e-02  7.3865e-03  -2.9918 0.0027760 ** 
+pueblos_indigenas    1.3404e-02  1.6377e-02   0.8185 0.4130942    
+disc_wg             -1.0799e-02  6.7152e-03  -1.6082 0.1078052    
+extranjero           2.9820e-01  2.4369e-02  12.2368 < 2.2e-16 ***
+factor(area)2       -7.6734e-02  1.4051e-02  -5.4611 4.782e-08 ***
+factor(ecivil)2      2.5097e-01  1.4358e-02  17.4790 < 2.2e-16 ***
+factor(ecivil)3      2.2011e-01  7.6542e-02   2.8757 0.0040349 ** 
+factor(ecivil)4      3.4228e-01  1.5826e-01   2.1628 0.0305648 *  
+factor(ecivil)5      2.0264e-01  2.4645e-02   8.2222 < 2.2e-16 ***
+factor(ecivil)6      3.5202e-01  2.8330e-02  12.4257 < 2.2e-16 ***
+factor(ecivil)7      1.6613e-01  3.7210e-02   4.4646 8.061e-06 ***
+factor(ecivil)8      5.7533e-02  1.4477e-02   3.9739 7.091e-05 ***
+factor(region)2     -9.8247e-02  2.9155e-02  -3.3698 0.0007535 ***
+factor(region)3     -9.2974e-02  3.0935e-02  -3.0055 0.0026542 ** 
+factor(region)4     -1.0459e-01  3.2414e-02  -3.2268 0.0012537 ** 
+factor(region)5     -6.1097e-02  2.5992e-02  -2.3506 0.0187524 *  
+factor(region)6     -8.7778e-03  2.6981e-02  -0.3253 0.7449272    
+factor(region)7     -4.1162e-02  2.7732e-02  -1.4843 0.1377431    
+factor(region)8     -1.5240e-01  2.5506e-02  -5.9751 2.334e-09 ***
+factor(region)9     -1.3391e-01  2.7614e-02  -4.8493 1.247e-06 ***
+factor(region)10     5.1216e-02  2.9131e-02   1.7581 0.0787425 .  
+factor(region)11     3.2714e-01  4.1519e-02   7.8792 3.441e-15 ***
+factor(region)12     1.9571e-01  3.4708e-02   5.6387 1.733e-08 ***
+factor(region)13     8.4171e-02  2.3548e-02   3.5745 0.0003516 ***
+factor(region)14     2.1323e-02  2.9551e-02   0.7215 0.4705787    
+factor(region)15    -6.7893e-02  3.2638e-02  -2.0802 0.0375204 *  
+factor(region)16    -1.4616e-01  2.9974e-02  -4.8763 1.088e-06 ***
+factor(year)2024     3.6763e-02  1.0782e-02   3.4097 0.0006514 ***
+AFAB:Trans_explicit  4.4765e-02  2.8292e-01   0.1582 0.8742826    
+AFAB:NB_explicit     2.1902e-01  2.7108e-01   0.8079 0.4191391    
+AFAB:LG              6.1429e-01  1.0749e-01   5.7150 1.111e-08 ***
+AFAB:bisexual        6.7270e-01  1.0013e-01   6.7183 1.882e-11 ***
+AFAB:Other           5.8071e-01  2.5661e-01   2.2630 0.0236432 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

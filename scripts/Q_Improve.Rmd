@@ -1,0 +1,280 @@
+---
+title: "Q_Improve"
+output: pdf_document
+date: "2026-07-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(survey)
+library(texreg)
+library(dplyr)
+library(ggplot2)
+
+dir.create("Tables", showWarnings = FALSE)
+dir.create("Figures", showWarnings = FALSE)
+
+# Cargar base de datos y crear variable post
+panel_total <- read.csv("Intermediates/Panel_total.csv")
+panel_total <- panel_total %>% mutate(post = ifelse(year >= 2022, 1, 0))
+
+# Crear diseño muestral base
+diseno_panel <- svydesign(
+  ids = ~varunit_panel,
+  strata = ~varstrat_panel,
+  weights = ~expr_osig,
+  data = panel_total,
+  nest = TRUE
+)
+
+# Restringir por edad
+diseno_panel <- diseno_panel %>% subset(edad <= 65)
+```
+
+```{r}
+# ---------------------------------------------------------
+# VARIABLES GLOBALES Y FUNCIÓN DE EXPORTACIÓN
+# ---------------------------------------------------------
+calcular_r2 <- function(modelo) {
+  1 - (modelo$deviance / modelo$null.deviance)
+}
+
+nombres_col_personalizados <- c(
+  "\\begin{tabular}[c]{@{}c@{}}Hetero\\\\ (1)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Hetero\\\\ (2)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Lesbian/Gay\\\\ (3)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Lesbian/Gay\\\\ (4)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Bisexual\\\\ (5)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Bisexual\\\\ (6)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Cis\\\\ (7)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}Cis\\\\ (8)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}GM\\\\ (9)\\end{tabular}",
+  "\\begin{tabular}[c]{@{}c@{}}GM\\\\ (10)\\end{tabular}"
+)
+
+controles_demo <- rep(c("NO", "YES"), 5)
+
+exportar_tabla_latex <- function(lista_modelos, mapa_coef, archivo_salida, titulo) {
+  valores_r2 <- as.numeric(sapply(lista_modelos, calcular_r2))
+  filas_gof <- list("Demographic Controls" = controles_demo, "R$^2$" = valores_r2)
+  
+  tex_base <- texreg(lista_modelos, 
+                     custom.model.names = nombres_col_personalizados, 
+                     custom.coef.map = mapa_coef,
+                     digits = 3,
+                     include.dispersion = FALSE, include.deviance = FALSE,
+                     include.aic = FALSE, include.bic = FALSE, include.loglik = FALSE,
+                     custom.gof.rows = filas_gof, table = FALSE)
+  
+  lineas <- strsplit(tex_base, "\n")[[1]]
+  
+  # CORRECCIÓN: Tomar solo el primer inicio y el último final
+  idx_begin <- grep("\\\\begin\\{tabular\\}", lineas)[1]
+  idx_end <- tail(grep("\\\\end\\{tabular\\}", lineas), 1)
+  
+  tabular_body <- lineas[idx_begin:(idx_end-1)]
+  
+  tabla_final <- c(
+    "\\begin{table}[htpb]",
+    "\\label{tab:prob}",
+    "\\centering",
+    paste0("\\caption{", titulo, "}"),
+    "\\resizebox{\\textwidth}{!}{",
+    tabular_body,
+    "\\hline",
+    "\\multicolumn{11}{l}{\\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$}} \\\\",
+    "\\end{tabular}",
+    "}",
+    "\\vspace{1ex}",
+    "\\raggedright",
+    "\\footnotesize\\textit{Note:} According to the literature, the most relevant demographic controls for modeling membership in these groups include age, education, marital status, rural-urban residence, and variables of ethnic origin or immigrant status \\citep{Badgettetal2021, Carpenteretal2020}.",
+    "\\end{table}"
+  )
+  writeLines(tabla_final, archivo_salida)
+}
+```
+
+```{r}
+# =========================================================
+# 1. MODELOS ORIGINALES: Variable POST
+# =========================================================
+Hetero_1P_INTER <- svyglm(Hetero ~ post * AFAB, design = diseno_panel, family = quasibinomial())
+Hetero_2P_INTER <- svyglm(Hetero ~ post * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel, family = quasibinomial())
+
+LG_1P_INTER <- svyglm(LG ~ post * AFAB, design = diseno_panel, family = quasibinomial())
+LG_2P_INTER <- svyglm(LG ~ post * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel, family = quasibinomial())
+
+Bi_1P_INTER <- svyglm(bisexual ~ post * AFAB, design = diseno_panel, family = quasibinomial())
+Bi_2P_INTER <- svyglm(bisexual ~ post * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel, family = quasibinomial())
+
+Cis_1P_INTER <- svyglm(cis ~ post * AFAB, design = diseno_panel, family = quasibinomial())
+Cis_2P_INTER <- svyglm(cis ~ post * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel, family = quasibinomial())
+
+GM_1P_INTER <- svyglm(GM ~ post * AFAB, design = diseno_panel, family = quasibinomial())
+GM_2P_INTER <- svyglm(GM ~ post * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel, family = quasibinomial())
+
+lista_post <- list(Hetero_1P_INTER, Hetero_2P_INTER, LG_1P_INTER, LG_2P_INTER, Bi_1P_INTER, Bi_2P_INTER, Cis_1P_INTER, Cis_2P_INTER, GM_1P_INTER, GM_2P_INTER)
+
+mapa_post <- list("post" = "Post", "AFAB" = "AFAB", "post:AFAB" = "Post $\\times$ AFAB")
+
+exportar_tabla_latex(lista_post, mapa_post, "Tables/reg_q_post_inter_c.tex", "Discrete choice of Autodetermination (Post 2022)")
+```
+
+```{r}
+# =========================================================
+# EXPORTACIÓN DE LA TABLA COMPLETA (TODOS LOS CONTROLES)
+# Base entera, variable POST (2022 y 2024)
+# =========================================================
+
+nombres_modelos_full <- c("Hetero", "Hetero", "LG", "LG", "Bisexual", "Bisexual", 
+                          "Cis", "Cis", "GM", "GM")
+
+# Extraemos todos los coeficientes que existen en los modelos
+nombres_originales_inter <- unique(unlist(lapply(lista_post, function(x) names(coef(x)))))
+mapa_coef_full <- setNames(as.list(nombres_originales_inter), nombres_originales_inter)
+
+# Renombramos a etiquetas limpias para LaTeX
+mapa_coef_full[["post"]]      <- "Post"
+mapa_coef_full[["AFAB"]]      <- "AFAB"
+mapa_coef_full[["post:AFAB"]] <- "Post $\\times$ AFAB"
+
+mapa_coef_full[["(Intercept)"]]       <- "Constant"
+mapa_coef_full[["edad"]]              <- "Age"
+mapa_coef_full[["esc"]]               <- "Schooling years"
+mapa_coef_full[["factor(ecivil)2"]]   <- "Partnered"
+mapa_coef_full[["factor(ecivil)3"]]   <- "Engaged"
+mapa_coef_full[["factor(ecivil)4"]]   <- "Annulled"
+mapa_coef_full[["factor(ecivil)5"]]   <- "Separated"
+mapa_coef_full[["factor(ecivil)6"]]   <- "Divorced"
+mapa_coef_full[["factor(ecivil)7"]]   <- "Widowed"
+mapa_coef_full[["factor(ecivil)8"]]   <- "Single"
+mapa_coef_full[["factor(area)2"]]     <- "Rural"      
+mapa_coef_full[["pueblos_indigenas"]] <- "Indigenous" 
+mapa_coef_full[["extranjero"]]        <- "Immigrant"
+mapa_coef_full[["men11c"]]            <- "Children<=11"
+
+# Exportación de la tabla con TODOS los coeficientes mapeados
+texreg(lista_post, 
+       custom.model.names = nombres_modelos_full, 
+       custom.coef.map = mapa_coef_full,
+       digits = 3,
+       caption.above = TRUE,
+       table = FALSE, 
+       file = "Tables/reg_q_post_inter_full.tex")
+```
+
+```{r}
+# =========================================================
+# 2. MODELOS BASE 2015 (Todos los años)
+# =========================================================
+diseno_panel_15 <- update(diseno_panel, year_f = relevel(factor(year), ref = "2015"))
+
+H_1P_15 <- svyglm(Hetero ~ year_f * AFAB, design = diseno_panel_15, family = quasibinomial())
+H_2P_15 <- svyglm(Hetero ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_15, family = quasibinomial())
+
+L_1P_15 <- svyglm(LG ~ year_f * AFAB, design = diseno_panel_15, family = quasibinomial())
+L_2P_15 <- svyglm(LG ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_15, family = quasibinomial())
+
+B_1P_15 <- svyglm(bisexual ~ year_f * AFAB, design = diseno_panel_15, family = quasibinomial())
+B_2P_15 <- svyglm(bisexual ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_15, family = quasibinomial())
+
+C_1P_15 <- svyglm(cis ~ year_f * AFAB, design = diseno_panel_15, family = quasibinomial())
+C_2P_15 <- svyglm(cis ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_15, family = quasibinomial())
+
+G_1P_15 <- svyglm(GM ~ year_f * AFAB, design = diseno_panel_15, family = quasibinomial())
+G_2P_15 <- svyglm(GM ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_15, family = quasibinomial())
+
+lista_15 <- list(H_1P_15, H_2P_15, L_1P_15, L_2P_15, B_1P_15, B_2P_15, C_1P_15, C_2P_15, G_1P_15, G_2P_15)
+
+mapa_15 <- list(
+  "year_f2017" = "Year 2017",
+  "year_f2022" = "Year 2022",
+  "year_f2024" = "Year 2024",
+  "AFAB" = "AFAB",
+  "year_f2017:AFAB" = "Year 2017 $\\times$ AFAB",
+  "year_f2022:AFAB" = "Year 2022 $\\times$ AFAB",
+  "year_f2024:AFAB" = "Year 2024 $\\times$ AFAB"
+)
+
+exportar_tabla_latex(lista_15, mapa_15, "Tables/reg_q_year_base2015_inter.tex", "Discrete choice of Autodetermination (Base: 2015)")
+```
+
+```{r}
+# =========================================================
+# 3. MODELOS BASE 2017 (Sin 2015)
+# =========================================================
+diseno_panel_17 <- subset(diseno_panel, year != 2015)
+diseno_panel_17 <- update(diseno_panel_17, year_f = relevel(factor(year), ref = "2017"))
+
+H_1P_17 <- svyglm(Hetero ~ year_f * AFAB, design = diseno_panel_17, family = quasibinomial())
+H_2P_17 <- svyglm(Hetero ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_17, family = quasibinomial())
+
+L_1P_17 <- svyglm(LG ~ year_f * AFAB, design = diseno_panel_17, family = quasibinomial())
+L_2P_17 <- svyglm(LG ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_17, family = quasibinomial())
+
+B_1P_17 <- svyglm(bisexual ~ year_f * AFAB, design = diseno_panel_17, family = quasibinomial())
+B_2P_17 <- svyglm(bisexual ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_17, family = quasibinomial())
+
+C_1P_17 <- svyglm(cis ~ year_f * AFAB, design = diseno_panel_17, family = quasibinomial())
+C_2P_17 <- svyglm(cis ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_17, family = quasibinomial())
+
+G_1P_17 <- svyglm(GM ~ year_f * AFAB, design = diseno_panel_17, family = quasibinomial())
+G_2P_17 <- svyglm(GM ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_17, family = quasibinomial())
+
+lista_17 <- list(H_1P_17, H_2P_17, L_1P_17, L_2P_17, B_1P_17, B_2P_17, C_1P_17, C_2P_17, G_1P_17, G_2P_17)
+
+mapa_17 <- list(
+  "year_f2022" = "Year 2022",
+  "year_f2024" = "Year 2024",
+  "AFAB" = "AFAB",
+  "year_f2022:AFAB" = "Year 2022 $\\times$ AFAB",
+  "year_f2024:AFAB" = "Year 2024 $\\times$ AFAB"
+)
+
+exportar_tabla_latex(lista_17, mapa_17, "Tables/reg_q_year_base2017_inter.tex", "Discrete choice of Autodetermination (Base: 2017)")
+```
+
+```{r}
+# =========================================================
+# 4. MODELOS BASE 2022 (Solo 2022 y 2024)
+# =========================================================
+diseno_panel_22 <- subset(diseno_panel, year %in% c(2022, 2024))
+diseno_panel_22 <- update(diseno_panel_22, year_f = relevel(factor(year), ref = "2022"))
+
+H_1P_22 <- svyglm(Hetero ~ year_f * AFAB, design = diseno_panel_22, family = quasibinomial())
+H_2P_22 <- svyglm(Hetero ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c +factor(region), design = diseno_panel_22, family = quasibinomial())
+
+L_1P_22 <- svyglm(LG ~ year_f * AFAB, design = diseno_panel_22, family = quasibinomial())
+L_2P_22 <- svyglm(LG ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_22, family = quasibinomial())
+
+B_1P_22 <- svyglm(bisexual ~ year_f * AFAB, design = diseno_panel_22, family = quasibinomial())
+B_2P_22 <- svyglm(bisexual ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_22, family = quasibinomial())
+
+C_1P_22 <- svyglm(cis ~ year_f * AFAB, design = diseno_panel_22, family = quasibinomial())
+C_2P_22 <- svyglm(cis ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_22, family = quasibinomial())
+
+G_1P_22 <- svyglm(GM ~ year_f * AFAB, design = diseno_panel_22, family = quasibinomial())
+G_2P_22 <- svyglm(GM ~ year_f * AFAB + edad + esc + factor(ecivil) + factor(area) + pueblos_indigenas + extranjero + men11c + factor(region), design = diseno_panel_22, family = quasibinomial())
+
+lista_22 <- list(H_1P_22, H_2P_22, L_1P_22, L_2P_22, B_1P_22, B_2P_22, C_1P_22, C_2P_22, G_1P_22, G_2P_22)
+
+mapa_22 <- list(
+  "year_f2024" = "Year 2024",
+  "AFAB" = "AFAB",
+  "year_f2024:AFAB" = "Year 2024 $\\times$ AFAB"
+)
+
+exportar_tabla_latex(lista_22, mapa_22, "Tables/reg_q_year_base2022_inter.tex", "Discrete choice of Autodetermination (Base: 2022)")
+```
+
+```{r}
+# Eliminar todos los objetos del Global Environment
+rm(list = ls())
+
+# Forzar la recolección de basura para liberar efectivamente la memoria RAM
+gc()
+```
+

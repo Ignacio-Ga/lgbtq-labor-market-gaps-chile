@@ -1,0 +1,18 @@
+Referente: ocupados de 18 a 65 anos de los SAV completos (ver parametros).
+Edades configuradas: 18 - 65
+Nivel CIUO-08: 3 digitos.
+Umbral principal >=  0.5 ; alternativo >=  0.6
+Numerador: suma de expr para sexo=2; denominador: suma de expr para sexo=1 o 2.
+sexo es el sexo registrado por CASEN; no se sustituye por genero ni cis.
+No se excluyen personas por orientacion sexual, identidad, ingreso o controles.
+Se excluyen codigos ocupacionales no clasificables; no se recodifican como 0.
+La definicion conjunta se aplica de forma fija a ambas olas.
+Los totales conjuntos son promedios de stocks; las proporciones son cocientes
+de esos totales, no promedios simples de las proporciones de cada ola.
+Los EE se calculan por Taylor con estratos y UPM distintos por ola.
+IC Wald aproximados; se dejan vacios si la proporcion es 0/1 o el EE no es positivo.
+n<30 es una marca descriptiva de revision, no un estandar oficial de confiabilidad.
+Las marcas de precision no excluyen casos automaticamente.
+La clasificacion es descriptiva: no mide aceptacion LGBTQ+ ni identifica causalidad.
+Una regresion que use esta clasificacion como fija no propaga su incertidumbre.
+Fuentes: libros CASEN 2022/2024, hojas Factor, H, Var MDSF, O y Anexo1.

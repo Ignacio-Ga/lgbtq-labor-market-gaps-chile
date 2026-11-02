@@ -1,0 +1,46 @@
+\begin{table}[htpb!]
+\caption{Employment Categories and Informality by Gender and Sexual Diversity}
+\label{tab:employment_informality_disaggregated_Probit_expr}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c}
+\hline
+ & Formal dependent & Informal dependent & Formal independent & Informal independent & Unpaid family worker \\
+\hline
+\multicolumn{6}{l}{\textit{Panel A: Assigned Sex and Gender Minority Status}} \\
+AFAB cis vs AMAB cis & $-2.509^{***}$ & $3.732^{***}$ & $-2.772^{***}$ & $1.541^{***}$ & $0.254^{***}$ \\
+ & $(0.417)$ & $(0.320)$ & $(0.285)$ & $(0.282)$ & $(0.041)$ \\
+AMAB GM vs AMAB cis & $-2.706$ & $2.644$ & $-0.093$ & $0.316$ & $0.102$ \\
+ & $(3.639)$ & $(2.347)$ & $(2.495)$ & $(2.157)$ & $(0.190)$ \\
+AFAB GM vs AMAB cis & $-2.465$ & $4.239^{*}$ & $-2.283$ & $1.440$ & $-0.165^{***}$ \\
+ & $(2.775)$ & $(1.890)$ & $(2.006)$ & $(1.916)$ & $(0.023)$ \\
+AFAB GM vs AFAB cis & $0.044$ & $0.507$ & $0.490$ & $-0.101$ & $-0.418^{***}$ \\
+ & $(2.767)$ & $(1.885)$ & $(2.007)$ & $(1.920)$ & $(0.034)$ \\
+AFAB GM vs AMAB GM & $0.242$ & $1.595$ & $-2.190$ & $1.124$ & $-0.267$ \\
+ & $(4.576)$ & $(2.979)$ & $(3.184)$ & $(2.871)$ & $(0.192)$ \\
+\hline
+Num. obs. & $93,772$ & $93,772$ & $93,772$ & $93,772$ & $93,772$ \\
+\hline
+\multicolumn{6}{l}{\textit{Panel B: Sexual Orientation Within Assigned Sex}} \\
+AMAB LG vs AMAB heterosexual & $-3.397$ & $4.320^{*}$ & $0.454$ & $-2.206$ & $-0.001$ \\
+ & $(2.679)$ & $(2.057)$ & $(1.575)$ & $(1.511)$ & $(0.155)$ \\
+AFAB LG vs AFAB heterosexual & $1.155$ & $-1.636$ & $1.192$ & $-0.940$ & $-0.417^{***}$ \\
+ & $(2.819)$ & $(1.544)$ & $(1.870)$ & $(2.132)$ & $(0.034)$ \\
+AMAB bisexual vs AMAB heterosexual & $-15.741^{*}$ & $9.565$ & $3.077$ & $3.411$ & $-0.162^{***}$ \\
+ & $(7.057)$ & $(8.286)$ & $(3.177)$ & $(2.697)$ & $(0.023)$ \\
+AFAB bisexual vs AFAB heterosexual & $-6.785^{**}$ & $1.957$ & $3.036^{\dagger}$ & $1.619$ & $-0.026$ \\
+ & $(2.247)$ & $(1.551)$ & $(1.553)$ & $(1.668)$ & $(0.238)$ \\
+AMAB other vs AMAB heterosexual & $-26.666^{**}$ & $-0.711$ & $-2.651$ & $27.704^{*}$ & $3.147$ \\
+ & $(9.385)$ & $(5.054)$ & $(4.833)$ & $(11.623)$ & $(2.417)$ \\
+AFAB other vs AFAB heterosexual & $-12.536^{*}$ & $1.179$ & $2.226$ & $8.337^{\dagger}$ & $1.689$ \\
+ & $(5.424)$ & $(3.502)$ & $(3.882)$ & $(4.460)$ & $(1.947)$ \\
+\hline
+Num. obs. & $93,772$ & $93,772$ & $93,772$ & $93,772$ & $93,772$ \\
+\hline
+\end{tabular}%
+}
+\par\vspace{1ex}
+\begin{minipage}{\textwidth}\footnotesize\raggedright
+\textit{Note:} Weighting sensitivity exercise: regressions and average contrasts use the full-survey expansion factor (expr), retaining the original SOGI eligibility rules, controls, and outcome definitions. This reweighting does not turn the SOGI subsample into the full CASEN sample. All columns use the same sample of employed respondents with complete controls and a classifiable employment category. Dependent workers include occupational categories 3--8; independent workers include categories 1--2; unpaid family workers are category 9. Informality uses the reconstructed measure from the main labor-outcome analysis. Each column is a separate probit for membership in that category versus all other categories. Entries are survey-weighted average discrete changes in percentage points, using the main specification and contrast scenarios. Standard errors use Taylor survey covariance and the delta method. Because the probits are estimated separately, predicted category probabilities need not sum to one and contrasts need not sum to zero. These estimates do not identify causal effects or workers' motivations. $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\dagger}p<0.10$. Panels A and B report contrasts from the same fitted model within each column; sample sizes and fit statistics are repeated for presentation. A dash indicates that conventional R-squared is not reported for probit models or is undefined.
+\end{minipage}
+\end{table}

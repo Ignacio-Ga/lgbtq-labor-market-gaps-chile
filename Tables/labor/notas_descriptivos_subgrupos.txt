@@ -1,0 +1,15 @@
+DESCRIPTIVOS ADICIONALES - NO MODIFICAN LAS ESTIMACIONES
+N: conteos no ponderados. Porcentajes ponderados: expr_osig, salvo columnas expresamente porcentaje_N.
+Se reportan 2022, 2024 y ambas olas agrupadas; el agrupado usa los pesos originales, sin normalizacion por ola.
+Las dimensiones se solapan: GM y diversidad sexual no son grupos excluyentes. No sumar sus filas.
+INGRESO: la base descriptiva incluye no clasificables; cada fila de modelo muestra la muestra antes de exigir ingreso valido, manteniendo los demas requisitos.
+Esto separa las perdidas exclusivamente por ing_nl de las perdidas ya causadas por controles, filtros historicos o clasificacion SOGI.
+Los faltantes incluyen fuentes invalidas; los ingresos validos iguales a cero no se excluyen.
+N DE MODELOS: muestras efectivas reconstruidas con la misma formula y mascara de cada regresion; comunes a MPL y Probit.
+INFORMALIDAD: tasas observadas, no ajustadas. La base amplia no exige ingresos ni controles completos; la segunda base exige la muestra final de participacion.
+La tasa habitual es informales / ocupados con informalidad clasificable. No equivale al porcentaje de empleo informal sobre toda la poblacion.
+El porcentaje de empleo informal en poblacion clasificable incluye no ocupados en el denominador, como no empleados informales; no los llama trabajadores formales.
+Los ocupados sin clasificacion no se imputan formales: se muestran su N, porcentaje y limites suponiendolos todos formales o todos informales.
+Los limites no son intervalos de confianza. El denominador poblacional de los limites exige actividad conocida.
+Las tasas describen la poblacion del modulo SOGI de 18-65 anos; no son directamente comparables con una tasa nacional de ocupados de 15 anos o mas.
+La precision de grupos pequenos requiere revisar los N; este archivo no incluye errores estandar.

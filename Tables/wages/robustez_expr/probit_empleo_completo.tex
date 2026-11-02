@@ -1,0 +1,73 @@
+% Requires graphicx.
+\begin{table}[htpb]
+\caption{Employment Selection Probit: Full Coefficients}
+\label{tab:wages_selection_full_expr}
+\centering
+\begin{tabular}{l c}
+\hline
+ & Employment \\
+\hline
+Constant & $-4.025^{***}$ \\
+ & $(0.064)$ \\
+AFAB & $-0.744^{***}$ \\
+ & $(0.011)$ \\
+Gender minority & $-0.184^{*}$ \\
+ & $(0.076)$ \\
+Gay/Lesbian & $-0.196^{***}$ \\
+ & $(0.054)$ \\
+Bisexual & $-0.435^{***}$ \\
+ & $(0.075)$ \\
+Other sexual orientation & $-0.561^{*}$ \\
+ & $(0.220)$ \\
+AFAB $\times$ Gender minority & $0.112$ \\
+ & $(0.097)$ \\
+AFAB $\times$ Gay/Lesbian & $0.614^{***}$ \\
+ & $(0.100)$ \\
+AFAB $\times$ Bisexual & $0.662^{***}$ \\
+ & $(0.084)$ \\
+AFAB $\times$ Other sexual orientation & $0.662^{**}$ \\
+ & $(0.255)$ \\
+Age & $0.191^{***}$ \\
+ & $(0.003)$ \\
+Age squared & $-0.002^{***}$ \\
+ & $(3.13\times 10^{-5})$ \\
+Years of schooling & $0.080^{***}$ \\
+ & $(0.002)$ \\
+Household child count (men11c) & $-0.058^{***}$ \\
+ & $(0.007)$ \\
+Non-labor income per capita & $-4.43\times 10^{-7}^{***}$ \\
+ & $(3.74\times 10^{-8})$ \\
+Disability & $-0.011$ \\
+ & $(0.008)$ \\
+Immigrant & $0.239^{***}$ \\
+ & $(0.022)$ \\
+Indigenous & $0.005$ \\
+ & $(0.016)$ \\
+Rural & $-0.127^{***}$ \\
+ & $(0.014)$ \\
+Year 2024 & $0.051^{***}$ \\
+ & $(0.010)$ \\
+Cohabiting without civil union & $0.261^{***}$ \\
+ & $(0.014)$ \\
+Civil union & $0.240^{***}$ \\
+ & $(0.071)$ \\
+Annulled & $0.534^{***}$ \\
+ & $(0.144)$ \\
+Separated & $0.331^{***}$ \\
+ & $(0.023)$ \\
+Divorced & $0.463^{***}$ \\
+ & $(0.025)$ \\
+Widowed & $0.286^{***}$ \\
+ & $(0.033)$ \\
+Single & $0.204^{***}$ \\
+ & $(0.013)$ \\
+\hline
+Num. obs. & $147,445$ \\
+\hline
+\multicolumn{2}{l}{\scriptsize $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\dagger}p<0.10$.} \\
+\end{tabular}%
+\par\smallskip
+\begin{minipage}{\textwidth}\footnotesize\raggedright
+\textit{Note:} Weighting sensitivity exercise: regressions and average contrasts use the full-survey expansion factor (expr), retaining the original SOGI eligibility rules, controls, and outcome definitions. This reweighting does not turn the SOGI subsample into the full CASEN sample. Authors' calculations using CASEN 2022 and 2024. Entries are original regression coefficients, with survey-design standard errors in parentheses. Models jointly include assigned sex, gender-minority status, sexual orientation, and the reported interactions. These coefficients are not the average contrasts reported in the main tables. Region fixed effects are included but omitted from the table. Year effects are displayed. Marital-status category 1 is the reference. The dependent variable equals one for employed respondents and zero for unemployed or inactive respondents. Entries are employment-probit index coefficients, not marginal effects. Non-labor household income per capita is ypchtotcor minus ypchtrabcor, in levels. The household child-count control is men11c. Conventional R-squared is not reported for the probit. Small nonzero coefficients and standard errors use scientific notation where necessary. Stars use each model's coefficient-summary p-values.
+\end{minipage}
+\end{table}
