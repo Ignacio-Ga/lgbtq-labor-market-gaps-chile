@@ -105,3 +105,14 @@ The supplied MATLAB main script runs both ENSSEX analyses, including maps, and I
 Retain these datasets from your original directory; they are not included in the organized code package. The CASEN calls in `principal.m` are commented out. To run only the INE analysis, comment out the `enssex_encuesta` call and execute the script from a clean session.
 
 The code uses functions from **Statistics and Machine Learning Toolbox**, such as `tcdf`; **Optimization Toolbox**, including `fminunc`; and, for maps, **Mapping Toolbox**, including `readgeotable`. Outputs are saved in `matlab/Tablas/`. The web survey is voluntary and non-probability-based; its estimates should not be interpreted as nationally representative.
+
+## License
+
+Except where otherwise indicated, the original R and MATLAB code in this
+repository is licensed under the MIT License. Third-party code and datasets
+retain their respective licenses and terms of use.
+
+## Citation
+
+If you use this code in academic work, please cite the archived version
+identified by its Zenodo DOI. See CITATION.cff for citation metadata.
