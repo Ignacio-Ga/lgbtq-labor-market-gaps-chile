@@ -116,3 +116,5 @@ retain their respective licenses and terms of use.
 
 If you use this code in academic work, please cite the archived version
 identified by its Zenodo DOI. See CITATION.cff for citation metadata.
+
+[![DOI](https://zenodo.org/badge/1443013006.svg)](https://doi.org/10.5281/zenodo.23895611)
