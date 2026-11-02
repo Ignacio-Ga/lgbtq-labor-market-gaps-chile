@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it using the metadata in this file."
+type: software
+title: "LGBTQ+ Labor-Market Gaps in Chile"
+version: "1.0.0"
+
+authors:
+  - family-names: "Gálvez Espinoza"
+    given-names: "Ignacio Alfonso"
+    affiliation: "Universidad de Chile"
+
+  - family-names: "Valenzuela Alvarado"
+    given-names: "Cristian Rodolfo"
+    affiliation: "Universidad de Chile"
+
+abstract: >-
+  Replication code for the analysis of labor-market and earnings gaps
+  by gender identity and sexual orientation in Chile. Includes CASEN
+  analyses, a reconstruction of Nettuno (2024), and complementary
+  estimates using the INE Web Survey on Sexual and Gender Diversity.
+
+repository-code: "https://github.com/Ignacio-Ga/lgbtq-labor-market-gaps-chile"
+
+keywords:
+  - LGBTQ+
+  - Chile
+  - CASEN
+  - labor market
+  - wage gaps
+  - gender identity
+  - sexual orientation
+
+license: "MIT"
